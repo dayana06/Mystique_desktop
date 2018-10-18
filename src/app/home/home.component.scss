@@ -1,0 +1,30 @@
+.inter {
+    height: 100%;
+}
+
+.login-wrapper {
+    height: 100%;
+}
+
+.ctn {
+    height: calc(100% - 64px);
+    display: flex;
+}
+
+.content {
+    overflow-y: scroll;
+    width: 100%;
+    .wrapper {
+        margin: 0 auto;
+        max-width: 1000px;
+        width: 100%;
+        //display: flex;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .ctn {
+        height: calc(100% - 56px);
+    }
+}

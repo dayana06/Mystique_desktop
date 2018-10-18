@@ -1,0 +1,127 @@
+<div class="selectFilter">
+    <mat-form-field class="fecha valor">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de inicio de la búsqueda" [(ngModel)]="fechaini" (ngModelChange)="crearUrl()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="fecha valor">
+        <input matInput [matDatepicker]="pickerEnd" placeholder="Fecha de fin de la búsqueda" [(ngModel)]="fechafin" (ngModelChange)="crearUrl()">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field class="valor inputs">
+        <mat-select name="tipo" placeholder="Seleccione el tipo de cliente" [(ngModel)]="valortipo" (change)="crearUrl()">
+            <mat-option name="opc2" *ngFor="let item of filtroTipoC" [value]="item.value">
+                {{ item.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="valor inputs">
+        <mat-select name="tipo" placeholder="Seleccione el sexo del cliente " [(ngModel)]="valortipodos" (change)="crearUrl()">
+            <mat-option name="opc" *ngFor="let item of filtroSexo" [value]="item.value">
+                {{ item.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="valor inputs">
+        <mat-select name="tipo" placeholder="Seleccione el rango de edad del cliente " [(ngModel)]="valorttres" (change)="crearUrl()">
+            <mat-option name="opc" *ngFor="let item of filtroRgoEdad" [value]="item.value">
+                {{ item.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="boton">
+        <button mat-raised-button (click)="getPDF()"> Importar PDF</button>
+    </div>
+
+</div>
+
+
+<div class="tabla" id="content" #content>
+    <h4>Reporte de clientes</h4>
+    <mat-table #table [dataSource]="dataSource" matSort id="print" #print id="table-id">
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="cliente">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Cliente</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let elemento"> {{elemento.nombre}} {{elemento.apellido}}</mat-cell>
+        </ng-container>
+        <!-- Telefono column -->
+        <ng-container matColumnDef="ced">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Cédula</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let elemento"> {{elemento.cedula}} </mat-cell>
+        </ng-container>
+        <!-- Cliente Column -->
+        <ng-container matColumnDef="tlf">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Teléfono</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let elemento"> {{elemento.telefono}} </mat-cell>
+        </ng-container>
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="dir">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Dirección</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let elemento"> {{elemento.direccion}} </mat-cell>
+        </ng-container>
+
+        <!-- Correo Column -->
+        <ng-container matColumnDef="ciudad">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Ciudad</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let elemento"> {{elemento.ciudad}}</mat-cell>
+        </ng-container>
+
+        <!-- Direccion Column -->
+        <ng-container matColumnDef="tipo">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Tipo de cliente</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let  elemento">
+                <div *ngIf="elemento.tipo_cliente === 'P'"> Potencial</div>
+                <div *ngIf="elemento.tipo_cliente === 'C'"> Consolidado</div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="sexo">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Sexo</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let  elemento">
+                <div *ngFor="let par of elemento.perfil">
+                    <div *ngIf="par.parametro == 'Sexo'">
+                        {{par.valor}}
+                    </div>
+                </div>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="rgo">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Rango de edad</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let  elemento">
+                <div *ngFor="let par of elemento.perfil">
+                    <div *ngIf="par.parametro == 'Rango de edad'">
+                        {{par.valor}}
+                    </div>
+                </div>
+            </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+</div>

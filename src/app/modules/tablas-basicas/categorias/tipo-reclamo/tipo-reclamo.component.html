@@ -1,0 +1,23 @@
+<div class="botonA">
+    <button mat-raised-button color="accent" (click)="openDialogReclamo()"> AgregarNuevo</button>
+</div>
+<div class="ctn" style="position: relative;">
+    <div class="citas" *ngFor="let TReclamo of detalles">
+
+        <mat-card class="detalle">
+            <mat-card-content>
+                <div class="name">
+                    <span class="bold">{{TReclamo.nombre}}</span>
+                    <br>
+                </div>
+                <p> {{TReclamo.descripcion}}</p>
+                <p> Registrado EL:{{TReclamo.fechaC}}</p><br>
+                <div class="botonEdi">
+                    <button mat-raised-button color="accent">Editar</button>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

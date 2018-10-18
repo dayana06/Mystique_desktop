@@ -1,0 +1,94 @@
+.ctn {
+    margin-top: 30px;
+}
+
+.btn {
+    margin-top: 15px;
+    margin-left: 800px;
+}
+
+input[type=text] {
+    width: 160px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 30%;
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 30px 15px 0;
+    margin-left: 200px;
+}
+
+.busqueda {
+    width: 160px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.busqueda:focus {
+    width: 30%;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    .ctn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        .col1 {
+            display: flex;
+            flex-direction: column;
+            width: 55%;
+            mat-form-field {
+                margin-left: 80px;
+               
+               
+            }
+            //       margin-right: 20px;
+        }
+        .col2 {
+            display: flex;
+            flex-direction: column;
+            width: 55%;
+            padding-bottom: 26px;
+            padding-left: 40px;
+            
+           
+        }
+        .inputs {
+            width: 200px;
+            margin-top: 10px;
+            margin-right: 5px;
+        }
+    }
+    .div-btn {
+        margin-left: 140px;
+    }
+}
+
+.loco{
+    width: 55%;
+
+}

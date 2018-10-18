@@ -1,0 +1,28 @@
+.ctn {
+    margin-top: 20px;
+    h1 {
+        font-size: 24px;
+        color: #6C798F;
+    }
+    .filtros {
+        display: flex;
+        flex-direction: row;
+        margin-top: 15px;
+        .select {
+            width: 100px;
+            flex: auto;
+            .letra {
+                font-size: 14px;
+                color: #6C798F;
+            }
+        }
+        .select1 {
+            width: 100px;
+            flex: auto;
+            .letra {
+                font-size: 14px;
+                color: #6C798F;
+            }
+        }
+    }
+}

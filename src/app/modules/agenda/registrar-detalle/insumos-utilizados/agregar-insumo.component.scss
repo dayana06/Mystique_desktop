@@ -1,0 +1,30 @@
+.inputs {
+    margin: 5px 0px;
+    width: 350px;
+}
+
+h4 {
+    color: #6C798F;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+.title {
+    color: #6C798F;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+.btn-fin {
+    display: flex;
+    flex-direction: row;
+    .btn {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+    }
+}

@@ -1,0 +1,46 @@
+<form class="clase1">
+    <!--Posiciona los botones a la parte superior derecha de la pantalla-->
+    <div style="text-align: right;">
+            <button mat-raised-button (click)="putEmpleado()">
+                <mat-icon>save</mat-icon> Guardar
+            </button>
+        </div>
+    <mat-form-field>
+        <input #titulo matInput placeholder="Titulo de la seccion" maxlength="500" [(ngModel)]="tituloC" [ngModelOptions]="{standalone: true}">
+        <mat-hint align="end">{{titulo.value.length}} / 500</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <textarea #subtitulo style="resize: none;" maxlength="1100" matInput placeholder="Descripcion de la seccion" [(ngModel)]="descripcion"
+            [ngModelOptions]="{standalone: true}"></textarea>
+        <mat-hint align="end">{{subtitulo.value.length}} / 1100</mat-hint>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Selecciona los empleados a mostrar en el inicio del portal web)" [(ngModel)]="empleadoAMostrar" [ngModelOptions]="{standalone: true}" multiple>
+            <mat-option *ngFor="let item of listadoEmpleado" value="{{item?.id}}">{{item?.nombre}} {{item?.apellido}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>
+<br>
+<div style="margin-top: 50px;">
+    <strong>Empleados mostrados en el inicio del portal</strong>
+</div>
+<mat-grid-list cols="1" rowHeight="400px">
+    <ng-container *ngFor="let item of listadoEmpleado">
+        <ng-container *ngFor="let item2 of empleadoAMostrar">
+            <mat-grid-tile *ngIf="item?.id == item2">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>
+                            <strong>{{item?.nombre}} {{item?.apellido}}</strong>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <img id="img{{item?.id}}" src="http://localhost:3000/files/empleado/{{item?.id}}.{{item?.imagen}}" style="max-width: 200px;  max-height: 300px;"
+                            alt="logo">
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </ng-container>
+    </ng-container>
+</mat-grid-list>

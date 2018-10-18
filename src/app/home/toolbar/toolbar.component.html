@@ -1,0 +1,65 @@
+<mat-toolbar class="toolbar mat-elevation-z1">
+    <div class="left">
+        <img src="/assets/img/logo.png" alt="logo" class="logo">
+    </div>
+    <div class="right">
+        <div class="notifications" [matMenuTriggerFor]="menu1">
+            <button mat-icon-button>
+                <p style="color:blue; border-radius:5px;">{{conta}}</p>
+                <mat-icon >notifications</mat-icon>
+            </button>
+        </div>
+        <mat-menu #menu1="matMenu">
+            <button class="button-info" mat-menu-item disabled>
+                <div class="wrapper-info">
+                    <div class="multi-list">
+                        <h3>Notificaciones</h3>       
+                    </div>
+                </div>
+            </button>
+            <mat-card-content button (click)="revisado()" *ngFor="let item of notificaciones">
+                <div class="name">
+                    <span class="bold"> {{item.titulo}} </span>
+                    <p class="name"> {{item.mensaje}} </p>
+                    <span class="name"> {{item.fecha | date:'dd/MM/yyyy HH:mm' }} </span>
+                </div>
+            </mat-card-content>
+        </mat-menu>
+        <mat-menu #menu="matMenu">
+            <button class="button-info" mat-menu-item disabled>
+                <div class="wrapper-info">
+                    <div class="img-radius">
+                        <img [src]="url" class="img-perfil" alt="perfil">
+                    </div>
+                    <div class="multi-list">
+                        <span class="name"> {{empleL.nombre}} {{empleL.apellido}} </span>
+                        <span class="color-gray">{{userI.correo}} </span>
+                    </div>
+                </div>
+            </button>
+            <button mat-menu-item routerLink="/usuario-perfil">
+                <mat-icon>person</mat-icon>
+                <span>Mi perfil</span>
+            </button>
+            <button mat-menu-item>
+                <mat-icon>card_travel</mat-icon>
+                <span>Mi negocio</span>
+            </button>
+            <button mat-menu-item routerLink="/usuario-perfil">
+                <mat-icon>person</mat-icon>
+                <span>Mi perfil</span>
+            </button>
+            <button mat-menu-item (click)="cerrarSesion()">
+                <mat-icon>power_settings_new</mat-icon>
+                <span>Cerrar Sesión</span>
+            </button>
+        </mat-menu>
+
+        <div class="perfil" [matMenuTriggerFor]="menu">
+            <span>{{empleL.nombre}} {{empleL.apellido}} </span>
+            <div class="img-radius">
+                <img [src]="url" class="img-perfil" alt="perfil">
+            </div>
+        </div>
+    </div>
+</mat-toolbar>

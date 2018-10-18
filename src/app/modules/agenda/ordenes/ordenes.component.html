@@ -1,0 +1,46 @@
+<div class="ctn">
+    <div class="search">
+        <div class="input-search mat-elevation-z1">
+            <mat-icon>search</mat-icon>
+            <mat-form-field class="full-width inputs">
+                <input matInput placeholder="Buscar cita o servicio prestado por código" autocomplete="off" type="search">
+            </mat-form-field>
+        </div>
+        <div class="select mat-elevation-z1">
+            <mat-form-field class="valor">
+                <mat-select placeholder="Empleados" [(ngModel)]="empleadosSeleccionados" multiple>
+                    <mat-select-trigger>
+                        {{empleadosSeleccionados ? empleadosSeleccionados[0] : ''}}
+                        <span *ngIf="empleadosSeleccionados.length > 1">
+                                    (+{{empleadosSeleccionados.length - 1}} otros)
+                                </span>
+                    </mat-select-trigger>
+                    <mat-option color="accent" *ngFor="let empleado of empleados" [value]="empleado">{{empleado}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="citas" *ngFor="let detalle of detalles">
+        <mat-card class="detalle">
+            <div class="contenido">
+                <div class="client">
+                    <div class="img-radius">
+                        <img src="/assets/img/perfil.jpg" class="img-perfil" alt="perfil">
+                    </div>
+                    <div class="name">
+                        <span class="bold">{{detalle.clientName}}</span><span> hizo una solicitud para:</span>
+                    </div>
+                </div>
+                <div class="det">
+                    <h4>Servicios: {{detalle.servicios}}</h4>
+                    <h4>Empleado: {{detalle.empleado}}</h4>
+                </div>
+            </div>
+            <div class="codigo">
+                <mat-icon *ngIf="detalle.icon">{{detalle.iconName}}</mat-icon>
+                <h4>{{detalle.codigo}}</h4>
+            </div>
+        </mat-card>
+    </div>
+</div>

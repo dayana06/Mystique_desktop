@@ -1,0 +1,29 @@
+.ctn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // margin-top: 30px;
+    // .cancelar {
+    //   margin-left: 250px;
+    //   margin-top: 25px;
+    // width: 500px;
+    //height: 100%;
+    h4 {
+        color: #6C798F;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+        margin-bottom: 15px;
+    }
+    .inputs {
+        margin: 5px 0px;
+        width: 450px;
+    }
+    .btn {
+        margin-top: 20px;
+        width: 120px;
+    }
+    input:disabled {
+        color: black;
+    }
+}

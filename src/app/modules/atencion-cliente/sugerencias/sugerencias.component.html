@@ -1,0 +1,83 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" class="busqueda" placeholder="Buscar por cliente">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+</div>
+<div class="reclamo" mat-grid-list cols="3" rowHeight="60px">
+    <div class="search">
+        <!--    <div class="input-search mat-elevation-z1">
+            <mat-icon>search</mat-icon>
+            <mat-form-field class="full-width inputs">
+                <input matInput placeholder="Buscar por cliente" autocomplete="off" type="search">
+            </mat-form-field>
+        </div>-->
+        <div class="select mat-elevation-z1">
+
+            <mat-form-field class="fecha">
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de inicio de la búsqueda">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        <div class="select1 mat-elevation-z1">
+            <mat-form-field class="fecha">
+                <input matInput [matDatepicker]="pickerEnd" placeholder="Fecha de fin de la búsqueda">
+                <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="select2 mat-elevation-z1">
+            <mat-form-field class="valor inputs">
+                <mat-select name="tipo" placeholder="Seleccione comentario " [(ngModel)]="datosMostrar.id_tipo_comentario">
+                    <mat-option *ngFor="let item of tCom" [value]="item.id">
+                        {{ item.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col">
+        <div class="usuario">
+            <h4>Usuario</h4>
+        </div>
+
+        <div class="fecha">
+            <h4>Fecha de realización</h4>
+        </div>
+        <div class="origen">
+            <h4>Origen del comentario</h4>
+        </div>
+    </div>
+    <div class="panel" *ngIf="mostrar">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let item of coment">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="title">
+                        {{item.nombre}}
+                    </mat-panel-title>
+
+                    <mat-panel-description class="date">
+                        {{item.fecha_creacion}}
+                    </mat-panel-description>
+                    <mat-panel-description class="type">
+                        {{item.tipo_comentario}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="desc">
+                    <br>
+                    <h3>Descripción:</h3><br>
+                    <p>{{item.descripcion}}</p><br>
+                </div>
+                <mat-divider></mat-divider>
+                <button mat-raised-button color="accent" class="btn" (click)="openDialog(item)">Dar Respuesta</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div *ngIf="!mostrar">
+        <h3>No hay sugerencias pendientes por responder</h3>
+    </div>
+</div>

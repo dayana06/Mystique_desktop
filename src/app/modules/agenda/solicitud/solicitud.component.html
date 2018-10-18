@@ -1,0 +1,59 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" class="busqueda" placeholder="Buscar por cliente">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+</div>
+<div class="ctn">
+
+    <!-- <div class="select mat-elevation-z1">
+            <mat-form-field class="valor">
+                <mat-select placeholder="Empleados" [(ngModel)]="empleadosSeleccionados" multiple>
+                    <mat-select-trigger>
+                        {{empleadosSeleccionados ? empleadosSeleccionados[0] : ''}}
+                        <span *ngIf="empleadosSeleccionados.length > 1">
+                                      (+{{empleadosSeleccionados.length - 1}} otros)
+                                  </span>
+                    </mat-select-trigger>
+                    <mat-option color="accent" *ngFor="let empleado of empleados" [value]="empleado">{{empleado}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>-->
+    <div *ngIf="pendientes">
+        <div class="citas" *ngFor="let detalle of solicitud">
+            <mat-card class="detalle">
+                <div class="contenido">
+                    <div class="client">
+                        <div class="name">
+                            <span class="bold">{{detalle.nombre}} {{detalle.apellido}}</span><span> hizo una solicitud para:</span>
+                        </div>
+                    </div>
+                    <div class="det">
+                        <h4>Servicios: <span *ngFor="let serv of detalle.servicios_solicitados">{{serv.tipo_servicio}} {{serv.nombre_servicio}}, </span> </h4>
+                        <h4>Empleado:
+                            <span class="warn" *ngIf="detalle.empleado.length == 0"> Sin seleccionar</span>
+                            <span class="norm" *ngFor="let empleado of detalle.empleadoBusqueda"> {{empleado.nombre}} {{empleado.apellido}}, </span>
+
+                            <!--*ngIf="detalle.empleado != null" -->
+
+                        </h4>
+                    </div>
+                    <div class="btn" (click)="openDialogResponder(detalle)">
+                        <button mat-button class="sec">DAR RESPUESTA</button>
+                    </div>
+                </div>
+                <!--
+            <div class="codigo">
+                <mat-icon *ngIf="detalle.icon">{{detalle.iconName}}</mat-icon>
+                <h4>{{detalle.codigo}}</h4>
+            </div>-->
+            </mat-card>
+        </div>
+    </div>
+
+    <div *ngIf="!pendientes">
+        <h3>No hay solicitudes pendientes por responder</h3>
+    </div>
+</div>

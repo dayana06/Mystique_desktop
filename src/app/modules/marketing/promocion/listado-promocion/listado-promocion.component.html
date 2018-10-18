@@ -1,0 +1,75 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" class="busqueda" placeholder="Buscar por Servicio">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+</div>
+<div class="btn">
+    <button mat-raised-button color="accent" routerLink="/config">Crear Promoción</button>
+</div>
+<div class="search">
+    <div class="select mat-elevation-z1">
+
+        <mat-form-field class="fecha">
+            <input matInput [matDatepicker]="picker" placeholder="Fecha de inicio de la Promoción">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+    </div>
+    <div class="select1 mat-elevation-z1">
+        <mat-form-field class="fecha">
+            <input matInput [matDatepicker]="pickerEnd" placeholder="Fecha de fin de la Promoción">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+        </mat-form-field>
+    </div>
+</div>
+<div class="ctn" style="position: relative;">
+
+
+
+    <div class="citas" *ngFor="let detalle of pro">
+
+
+        <mat-card class="detalle">
+            <mat-card-content>
+                <img mat-card-image src="http://localhost:3000/files/promocion/{{detalle.id}}.{{detalle.imagen}}" alt="Photo of a Shiba Inu" class="img-perfil">
+                <div class="menu">
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon class="icon">more_vert</mat-icon>
+                </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                    <span>Editar</span>
+                  </button>
+                        <button mat-menu-item>
+                    <span>Eliminar</span>
+                  </button>
+
+                    </mat-menu>
+                </div>
+
+                <div class="name">
+                    <span class="bold">{{detalle.nombre}}</span>
+                    <pre>                                                </pre>
+                </div>
+
+                <p>Detalle:{{detalle.descripcion}}. </p><br>
+                <p>Desde: {{detalle.fecha_inicio }}</p><br>
+                <p>Hasta: {{detalle.fecha_fin }}</p><br>
+                <pre>                    </pre>
+                <div class="pres">
+                    <pre>Porcentaje de Descuento {{detalle.porcentaje_descuento}}%</pre>
+                    <pre>Precio  :        {{detalle.precio_promocion}}    </pre>
+
+                </div>
+            </mat-card-content>
+
+
+        </mat-card>
+    </div>
+
+</div>

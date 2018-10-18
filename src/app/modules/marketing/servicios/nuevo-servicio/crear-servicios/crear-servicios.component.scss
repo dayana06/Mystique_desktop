@@ -1,0 +1,54 @@
+.boton {
+    margin-top: 25px;
+    margin-left: 70px;
+    display: flex;
+    .span1{flex:0;}.separador{flex:auto;}.div-para-rueda{flex:1; display: flex; justify-content: flex-end; padding: 0 25px 10px 0;
+        .div-rueda{position: relative;
+            mat-progress-spinner{
+                position: absolute;
+                /*Para Cifras de 1*//*top: -14px;
+                right: -15px;*/
+                /*Para Cifras de 2*/top: -14px;
+                right: -10px;
+                /*Para Cifras de 3*//*top: -14px;
+                right: -5px;*/
+            }
+        }
+    }
+}
+.ctn {
+    display: flex;
+    flex-direction: column;
+    //margin-left: 30px; //margen Dereche
+    //  justify-content: center;
+    // align-items: center;
+    // .card {
+
+    //   width: 500px;
+     margin-top: 30px;
+    // margin-left: 200px;
+    .inputs {
+        margin: 5px 0px;
+        width: 440px;
+    }
+    .title {
+        color: #6C798F;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 26px;
+        margin-bottom: 15px;
+    }
+    .btn-fin {
+        display: flex;
+        flex-direction: row;
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+        
+  position: relative;
+    }
+
+        
+}

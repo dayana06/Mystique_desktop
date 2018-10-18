@@ -1,0 +1,18 @@
+<div class="heading-panel">
+    <mat-tab-group>
+        <mat-tab label="Datos del Negocio">
+            <app-datos-negocio></app-datos-negocio>
+        </mat-tab>
+        <mat-tab label="Logo del negocio">
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h4 style="opacity: 0.5;">Sube las imágenes de tu logo y favicon</h4>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==0">-->
+                <mat-card style="padding: 50px 120px;">
+                    <app-logo-negocio></app-logo-negocio>
+                </mat-card>
+                <!--</div>-->
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

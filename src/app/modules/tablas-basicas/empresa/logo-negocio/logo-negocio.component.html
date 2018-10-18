@@ -1,0 +1,23 @@
+<div style="width:100%; display: flex; justify-content: center;">
+       
+    <div class="card1">
+        <b>Logo</b>
+     <!--   <img #logo id="logO" src="http://localhost:3000/files/negocio/{{neg.id}}.{{neg.imagen}}" alt="logo" width="500px" height="250">
+     --> <div>
+            <input #fileButton1 name="archivo"  id= "fileInput" style="display: none;" type ='file' >
+            <button mat-button (click)="fileButton.click()">
+                <mat-icon>backup</mat-icon> Reemplazar</button>
+            <button mat-button><mat-icon>delete</mat-icon></button> 
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="card2">
+    <b>Favicon</b>
+    <img #favIcon id="favIcono" src="/assets/img/favic.png" alt="favicon" width="150" height="150"> <br/>
+    
+    <input #fileButton2 name="archivo2" id="feliImput" style="display: none;" type='file' (change)="cambiarImagen($event,negoc.id)">
+    <button mat-button (click)="fileButton2.click()"><mat-icon>backup</mat-icon> Reemplazar</button>
+    <button mat-button><mat-icon>delete</mat-icon></button>
+</div>
+<button mat-raised-button color="accent" (click)="updateNegocio()">Guardar</button>

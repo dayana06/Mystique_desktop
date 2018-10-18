@@ -1,0 +1,53 @@
+<div class="content">
+    <div class="ctn">
+        <div class="col1">
+
+
+            <mat-form-field class="valor inputs">
+                <mat-select name="resp" [(ngModel)]="valor" placeholder="Categoria de Servicios">
+                    <mat-option name="pp" *ngFor="let filtro of pro " [value]="filtro.nombre">
+                        {{ filtro.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Nombre" [(ngModel)]="promocion.nombre" value="">
+            </mat-form-field>
+            <mat-form-field class="inputs">
+                <input matInput [matDatepicker]="picker" [(ngModel)]="promocion.fecha_inicio" placeholder="Fecha de inicio de la promoción">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+
+        <mat-form-field class="valor inputs">
+            <mat-select name="resp" placeholder="Servicios " [(ngModel)]="promocion.id_servicio">
+                <mat-option name="pp" *ngFor="let filtro of  servicio " [value]="filtro.id">
+                    {{ filtro.descripcion }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width inputs">
+            <input matInput placeholder="Descripción" [(ngModel)]="promocion.descripcion" value=""><br>
+        </mat-form-field>
+        <mat-form-field class="inputs">
+            <input matInput placeholder="Porcentaje de Descuento" [(ngModel)]="promocion.porcentaje_descuento">
+        </mat-form-field>
+        <mat-form-field class="inputs">
+            <input matInput [matDatepicker]="pickerEnd" [(ngModel)]="promocion.fecha_fin" placeholder="Fecha de finalización de la promoción">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+        </mat-form-field>
+
+
+
+    </div>
+
+
+    <div class="div-btn">
+        <input id="fileInput2 " style="display :none;" type='file' name="archivo">
+        <button mat-raised-button (click)="$event.currentTarget.previousElementSibling.click()" style="background-color: ghostwhite; color: gray;">
+       <mat-icon>backup</mat-icon> Subir Imagen</button><br>
+    </div>
+
+    <button mat-raised-button color="accent" (click)="addPromocion()">Guardar</button>

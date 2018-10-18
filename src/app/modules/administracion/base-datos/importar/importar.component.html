@@ -1,0 +1,17 @@
+<mat-card>
+    <div class="div-btn">
+        <input id="fileInput2" style="display: none;" type='file' (change)="incomingfile1($event)">
+        <button mat-raised-button (click)="$event.currentTarget.previousElementSibling.click()" style="background-color: ghostwhite; color: grey;">
+    <mat-icon>backup</mat-icon> IMPORTAR EMPLEADOS</button><br>
+    </div>
+    <div class="div-btn">
+        <input id="fileInput2" style="display: none;" type='file' (change)="incomingfile3($event)">
+        <button mat-raised-button (click)="$event.currentTarget.previousElementSibling.click()" style="background-color: ghostwhite; color: grey;">
+  <mat-icon>backup</mat-icon> IMPORTAR INSUMOS</button><br>
+    </div>
+    <div class="div-btn">
+        <input id="fileInput2" style="display: none;" type='file' (change)="incomingfile2($event)">
+        <button mat-raised-button (click)="$event.currentTarget.previousElementSibling.click()" style="background-color: ghostwhite; color: grey;">
+  <mat-icon>backup</mat-icon> IMPORTAR ESTADOS Y CIUDADES</button><br>
+    </div>
+</mat-card>

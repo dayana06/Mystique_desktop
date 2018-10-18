@@ -1,0 +1,57 @@
+<!-- el buscar -->
+<div class="ctn">
+    <div class="row">
+        <div class="search">
+            <div class="input-search mat-elevation-z1">
+                <mat-icon>search</mat-icon>
+                <mat-form-field class="full-width inputs">
+                    <input matInput placeholder="Buscar por servicio" autocomplete="off" type="search">
+                </mat-form-field>
+            </div>
+            <!--  -->
+            <div class="select mat-elevation-z1">
+                <mat-form-field class="valor">
+                    <mat-select placeholder="Seleccione tipo de servicio">
+                        <mat-option *ngFor="let filtro of filtro" selected="todo" [value]="filtro.value">
+                            {{ filtro.viewValue }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- el boton -->
+        <div class="boton">
+            <button mat-raised-button color="accent" routerLink="/nuevoServicio" class="btn">Nuevo servicio</button>
+        </div>
+    </div>
+    <div class="carta">
+        <mat-card class="matc" *ngFor="let item of pro">
+            <mat-card-header>
+                <div class="fila1">
+                    <div class="nombre">
+                    {{item.nombre}}
+                    </div>
+                    <div class="boton">
+                        <button mat-icon-button class="btn2">
+                      <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                    </button>
+                    <button mat-raised-button color="accent" (click)="openDialogEditar()" class="btn-carta ">Editar</button>
+                    </div>
+                </div>
+            </mat-card-header>
+             <!-- la imagen -->
+
+             <img mat-card-image src="http://localhost:3000/files/servicio/{{item.id}}.{{item.imagen}}" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <div class="fila2">
+                    <p>
+                        {{item.descripcion}}
+                    </p>
+                    <p>
+                        {{item.precio}}
+                    </p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/Roboto-Regular.ttf');
+}
+
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('assets/fonts/MaterialIcon.woff2') format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    font-family: 'Roboto';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f1f0f0 !important;
+}
+
+.color-gray {
+    color: #6C798F;
+}
+
+.btn-white {
+    background-color: white !important;
+    color: #6C798F !important;
+}
+
+.btn-gray {
+    background-color: #6C798F !important;
+    color: white !important;
+}
+
+.fab-btn2 {
+    background-color: rgb(35, 108, 245) !important;
+}
+
+.fab-btn3 {
+    background-color: rgb(53, 11, 168) !important;
+}
+
+.c-white {
+    color: white !important;
+}
+
+.btn-carta {
+    background-color: white !important;
+    color: black !important;
+}

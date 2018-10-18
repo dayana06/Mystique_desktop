@@ -1,0 +1,22 @@
+<div class="ctn">
+    <h3 class="title">
+        Nuevo valor para la característica:
+    </h3>
+
+    <!--  <texto>!-->
+    <mat-form-field class="example-full-width inputs" style="margin-top:20px; width: 300px;">
+        <textarea [(ngModel)]="nombre" matInput placeholder="Nombre del valor" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width inputs" style="width: 300px;">
+        <input [(ngModel)]="descripcion" matInput placeholder="Descripción del valor">
+    </mat-form-field>
+    <br>
+
+    <!--  <boton>!-->
+    <div class="btn-fin">
+        <button mat-raised-button color="accent" class="c-white btn" (click)="crearValorParametro()">Guardar</button>
+        <pre> </pre>
+        <button mat-raised-button color="accent" class="btn-white btn" (click)="notOK()">Cancelar</button>
+    </div>
+</div>

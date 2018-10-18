@@ -1,0 +1,56 @@
+<div style="margin-top: 30px">
+    <!--Posiciona los botones a la parte superior derecha de la pantalla-->
+    <div style="text-align: right;">
+        <button mat-raised-button (click)="putPromos()">
+            <mat-icon>save</mat-icon> Guardar
+        </button>
+    </div>
+    <mat-grid-list cols="1" rowHeight="260px">
+        <mat-grid-tile colspan="1" rowspan="1">
+            <mat-card style="width: 520px;height: 250px;">
+                <div>
+                    <mat-form-field style="width: 400px; margin-left: 40px;">
+                        <input #titulo matInput placeholder="Titulo de esta seccion" [(ngModel)]="tituloC" [ngModelOptions]="{standalone: true}">
+                        <mat-hint align="end">{{titulo.value.length}} / 500</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field style="width: 400px; margin-left: 40px;">
+                        <textarea matInput #subtitulo maxlength="1100" placeholder="Descripcion de esta seccion" [(ngModel)]="descripcion" [ngModelOptions]="{standalone: true}"></textarea>
+                        <mat-hint align="end">{{subtitulo.value.length}} / 1100</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field style="width: 400px; margin-left: 40px;">
+                        <mat-select placeholder="Escoge las promociones a mostrar en el inicio del portal web" [(ngModel)]="promosAMostrar" multiple>
+                            <mat-option *ngFor="let item of listadoPromocion" value="{{item?.id}}">{{item?.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
+<div style="margin-top: 50px;">
+    <strong>Promociones mostradas en el inicio del portal</strong>
+</div>
+<mat-grid-list cols="1" rowHeight="400px">
+    <ng-container *ngFor="let item of listadoPromocion">
+        <ng-container *ngFor="let item2 of promosAMostrar">
+            <mat-grid-tile *ngIf="item?.id == item2">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>
+                            <strong>{{item?.nombre}}</strong>
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <img id="img{{item?.id}}" src="http://localhost:3000/files/promocion/{{item?.id}}.{{item?.imagen}}" style="max-width: 360px; max-height: 300px;"
+                            alt="logo">
+                        <p>{{item?.descripcion}}</p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-grid-tile>
+        </ng-container>
+    </ng-container>
+</mat-grid-list>

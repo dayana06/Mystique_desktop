@@ -1,0 +1,42 @@
+<div class="boton btnrole">
+    <span class="span1" matTooltip="Listado"><button mat-raised-button routerLink="../"><mat-icon>keyboard_backspace</mat-icon> Volver</button></span>
+</div>
+<div class="boton btnrole">
+    <span class="span1" matTooltip="Listado"><button class="right" mat-raised-button color="accent" title="Nuevo rol"
+    (click)="openDialog(0,null,'crear')"><mat-icon>add</mat-icon> Agregar Rol</button></span>
+</div>
+
+<h4>
+  Roles de tus usuarios en tu negocio
+</h4>
+<div class="container">
+
+  <mat-card style="width: 400px; position: relative;" *ngFor="let rol of roles">
+    <div style="display: flex;">
+      <strong style="flex: 1;">{{rol.nombre}}</strong>
+      <button mat-raised-button style="flex: 0;" (click)="openDialog(rol.id,rol.nombre,'editar')">Editar</button>
+    </div>
+    <label *ngIf="rol.nombre.toLowerCase()!='administrador' && rol.nombre.toLowerCase()!='admin' && rol.nombre.toLowerCase()!='gerente' && rol.nombre.toLowerCase()!='superusuario' && rol.nombre.toLowerCase()!='superuser' && rol.nombre.toLowerCase()!='ceo'"
+           id="x-eliminar" (click)="rol_actual=rol;mostrarMensajeDeConfirmacion('¿Seguro que desea eliminar este rol?')">x</label>
+  </mat-card>
+
+</div>
+
+
+
+
+<!--EXAMPLE OF A MODAL DIALOG********************************************
+  <ol>
+    <li>
+      <mat-form-field>
+        <input matInput [(ngModel)]="name" placeholder="What's your name?">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>
+  *********************************************************************-->

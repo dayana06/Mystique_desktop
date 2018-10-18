@@ -1,0 +1,48 @@
+<div style="margin-top:30px" *ngIf="verBasico">
+    <mat-grid-list style="margin-top:200px" cols="2" rowHeight="40px" style="margin-right:130px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <button mat-raised-button>Volver</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list style="margin-top:-3px" cols="1" rowHeight="500px">
+        <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <div class="example-container">
+                <mat-card>
+                    <h4>Datos del Consejo</h4>
+                    <div>
+                        <mat-form-field style="width:600px">
+                            <input matInput placeholder="Titulo" [(ngModel)]="consejo.titulo">
+                        </mat-form-field>
+                    </div>
+                    <div class="text-center">
+                        <mat-form-field style="width:600px">
+                            <textarea matInput placeholder="Descripcion" [(ngModel)]="consejo.descripcion"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div text-center>
+                        <mat-form-field style="width:600px">
+                            <mat-select placeholder="Categoria">
+                                <mat-option *ngFor="let item of categorias" value="item">{{item.nombre}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <b>Imagen de Consejo</b>
+                        <img #logo id="logO" src="/assets/img/exfoliante.png" alt="logo" width="300" height="125">
+                        <div>
+                            <input #fileButton1 id="fileInput1" style="display: none;" type='file' (change)="cambiarImagen($event,logo.id)">
+                            <button mat-button (click)="fileButton1.click()"><mat-icon>backup</mat-icon> Subir Imagen</button>
+                            <button mat-button><mat-icon>delete</mat-icon></button>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <mat-grid-list cols="12" rowHeight="40px" style="margin-left:300px">
+        <mat-grid-tile [colspan]="6" [rowspan]="1"></mat-grid-tile>
+        <mat-grid-tile [colspan]="6" [rowspan]="1">
+            <button mat-raised-button color="accent" routerLink="/nuevoConsejo/Pasos">Continuar</button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

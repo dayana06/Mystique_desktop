@@ -1,0 +1,65 @@
+<div class="reclamo" mat-grid-list cols="3" rowHeight="60px">
+    <div class="search">
+        <div class="input-search mat-elevation-z1">
+            <mat-icon>search</mat-icon>
+            <mat-form-field class="full-width inputs">
+                <input matInput placeholder="Buscar opinión por cliente" autocomplete="off" type="search">
+            </mat-form-field>
+        </div>
+        <div class="select mat-elevation-z1">
+            <mat-form-field class="full-width desde">
+                <input matInput placeholder="Desde" autocomplete="off" disabled>
+            </mat-form-field>
+            <button mat-icon-button>
+            <mat-icon>date_range</mat-icon>
+          </button>
+        </div>
+        <div class="select1 mat-elevation-z1">
+            <mat-form-field class="full-width hasta">
+                <input matInput placeholder="Hasta" autocomplete="off" disabled>
+            </mat-form-field>
+            <button mat-icon-button>
+            <mat-icon>date_range</mat-icon>
+          </button>
+        </div>
+    </div>
+    <div class="col">
+        <div class="usuario">
+            <h4>Usuario</h4>
+        </div>
+
+        <div class="fecha">
+            <h4>Fecha de realización</h4>
+        </div>
+        <!-- <div class="origen">
+        <h4>Origen del reclamo</h4>
+    </div>-->
+    </div>
+    <div class="panel">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let dato of datos">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="title">
+                        {{dato.nombre}}
+                    </mat-panel-title>
+                    <!-- <mat-panel-description class="order">
+                      #{{dato.orden}}
+                  </mat-panel-description>-->
+                    <mat-panel-description class="date">
+                        {{dato.fecha}}
+                    </mat-panel-description>
+                    <!-- <mat-panel-description class="type">
+                      {{dato.tipoR}}
+                  </mat-panel-description>-->
+                </mat-expansion-panel-header>
+                <div class="desc">
+                    <br>
+                    <h3>Descripcion:</h3><br>
+                    <p>{{dato.descripcion}}</p><br>
+                </div>
+                <mat-divider></mat-divider>
+                <button mat-raised-button color="accent" class="btn">Dar Respuesta</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>

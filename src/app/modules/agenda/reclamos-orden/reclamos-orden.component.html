@@ -1,0 +1,88 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" class="busqueda" placeholder="Buscar por cliente">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+</div>
+<div class="reclamo" mat-grid-list cols="3" rowHeight="60px">
+    <div class="search">
+        <div class="select mat-elevation-z1">
+
+            <mat-form-field class="fecha">
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de inicio de la búsqueda">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+        </div>
+        <div class="select1 mat-elevation-z1">
+            <mat-form-field class="fecha">
+                <input matInput [matDatepicker]="pickerEnd" placeholder="Fecha de fin de la búsqueda">
+                <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+                <mat-datepicker #pickerEnd></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="col" *ngIf="mostrar">
+        <div class="usuario">
+            <h4>Usuario</h4>
+        </div>
+        <div class="orden">
+            <h4>Orden</h4>
+        </div>
+        <div class="fecha">
+            <h4>Fecha del reclamo</h4>
+        </div>
+        <div class="origen">
+            <h4>Origen del reclamo</h4>
+        </div>
+    </div>
+    <div class="panel">
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let item of rec">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="title">
+                        {{item.nombre}}
+                    </mat-panel-title>
+                    <mat-panel-description class="order">
+                        #{{item.id_orden_servicio}}
+                    </mat-panel-description>
+                    <mat-panel-description class="date">
+                        {{item.registro_reclamo}}
+                    </mat-panel-description>
+                    <mat-panel-description class="type">
+                        {{item.tipo_servicio}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <div class="desc">
+                    <br>
+                    <h3>Descripcion del reclamo:</h3><br>
+                    <p>{{item.descripcion}}</p><br>
+                </div>
+                <mat-divider></mat-divider>
+                <div class="garantia">
+                    <br>
+                    <h3>Garantia del servicio.</h3><br>
+                    <dl>
+                        <div>
+                            <dt>- {{item.servicio_reclamado}}</dt>
+
+                        </div>
+                    </dl>
+                    <div class="gar">
+                        <span>Fecha de vencimiento de garantia: </span>
+                        <span class="venc" [style.color]="((hoy | date) > (item.fecha_creacion | date)) ? 'red':'green'">
+                            {{item.garantia }}  dias </span>
+                    </div>
+                </div>
+                <button mat-raised-button color="accent" (click)="openDialog(item)" class="btn">Dar Respuesta</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div *ngIf="!mostrar">
+        <h3>No hay reclamos pendientes por responder</h3>
+    </div>
+</div>

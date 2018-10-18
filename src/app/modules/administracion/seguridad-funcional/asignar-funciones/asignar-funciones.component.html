@@ -1,0 +1,37 @@
+<div class="boton">
+    <span class="span1" matTooltip="Listado"><button mat-raised-button routerLink="../../"><mat-icon>keyboard_backspace</mat-icon> Volver</button></span>
+</div>
+<div style="padding: 30px 30px 30px 60px; max-width: 800px;">
+    <h4 style="opacity: 0.5; margin-left: 100px;">Asignar funciones a {{empleado.nombre+" "+empleado.apellido}}</h4>
+    <br>
+    <mat-card style="margin-left: 100px;">
+        <div class="clase1">
+            <mat-form-field>
+                    <input id="usucorreo" ngModel #usucorreo="ngModel" name="usucorreo"
+                     matInput required placeholder="Correo" [(ngModel)]="usuario.correo">
+                    <mat-error *ngIf="usucorreo.invalid && usucorreo.errors.required">
+                        Por favor, tipee el correo del usuario.
+                    </mat-error>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input id="usucontrasenia" ngModel #usucontrasenia="ngModel" name="usucontrasenia" (change)="cambio=true"
+                 matInput required type="password" placeholder="Contraseña" [(ngModel)]="usuario.contrasenia">
+                 <mat-error *ngIf="usucontrasenia.invalid && usucontrasenia.errors.required">
+                    Por favor, tipee la contraseña del usuario.
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-select placeholder="Rol" [(ngModel)]="usuario.id_rol">
+                    <mat-option *ngFor="let rol of roles" [value]="rol.id">
+                        {{ rol.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <br>
+
+        <br>
+        <button type="submit" mat-raised-button color="accent" (click)="editarUsuario()">Guardar</button>
+    </mat-card>
+</div>

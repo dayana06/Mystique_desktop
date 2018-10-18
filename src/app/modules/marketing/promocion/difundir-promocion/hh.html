@@ -1,0 +1,170 @@
+<mat-accordion class="example-headers-align">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+        <div class="registro">
+  
+            <mat-card class="detalle">
+                <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Titulo1:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                 <input  matInput placeholder="FechaInicio:" >
+                   <mat-icon class="icono" >date_range</mat-icon>
+                   </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="FechaFin:" >
+                    <mat-icon class="icono">date_range</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="valor inputs">
+                 <mat-select placeholder="Seleccione el servicio a Promocionar">
+                        <mat-option >
+                            Corte Cabello
+                        </mat-option>
+                        <mat-option >
+                              Secado
+                          </mat-option>
+                          <mat-option >
+                             Planchado
+                              </mat-option>
+                </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Porcentaje de Descuento:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    
+                    <input matInput  placeholder="Imagen:"  >
+                </mat-form-field>
+              
+              <mat-form-field>
+                <textarea matInput placeholder="Descripcion:" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad distinctio exercitationem officiis sequi bbbbbbbbbbbb</textarea>
+              </mat-form-field>
+              <br>
+              
+                <button mat-raised-button color="accent" (click)="openSnackBar()" routerLink="/timeline" class="c-white btn">Registrar</button>
+            </mat-card>
+        </div>
+    
+  
+      <mat-action-row>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+   
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true">
+        <div class="registro">
+              
+            <mat-card class="detalle">
+                <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Titulo2:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                 <input  matInput placeholder="FechaInicio:" >
+                   <mat-icon class="icono" >date_range</mat-icon>
+                   </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="FechaFin:" >
+                    <mat-icon class="icono">date_range</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="valor inputs">
+                 <mat-select placeholder="Seleccione el servicio a Promocionar">
+                        <mat-option >
+                            Corte Cabello
+                        </mat-option>
+                        <mat-option >
+                              Secado
+                          </mat-option>
+                          <mat-option >
+                             Planchado
+                              </mat-option>
+                </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Porcentaje de Descuento:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    
+                    <input matInput  placeholder="Imagen:"  >
+                </mat-form-field>
+              
+              <mat-form-field>
+                <textarea matInput placeholder="Descripcion:" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad distinctio exercitationem officiis sequi bbbbbbbbbbbb</textarea>
+              </mat-form-field>
+              <br>
+              
+                <button mat-raised-button color="accent" (click)="openSnackBar()" routerLink="/timeline" class="c-white btn">Registrar</button>
+            </mat-card>
+        </div>
+    
+  
+      
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+   
+
+
+
+
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+      
+        <div class="registro">
+  
+            <mat-card class="detalle">
+                <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Titulo3:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                 <input  matInput placeholder="FechaInicio:" >
+                   <mat-icon class="icono" >date_range</mat-icon>
+                   </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="FechaFin:" >
+                    <mat-icon class="icono">date_range</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="valor inputs">
+                 <mat-select placeholder="Seleccione el servicio a Promocionar">
+                        <mat-option >
+                            Corte Cabello
+                        </mat-option>
+                        <mat-option >
+                              Secado
+                          </mat-option>
+                          <mat-option >
+                             Planchado
+                              </mat-option>
+                </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Porcentaje de Descuento:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    
+                    <input matInput  placeholder="Imagen:"  >
+                </mat-form-field>
+              
+              <mat-form-field>
+                <textarea matInput placeholder="Descripcion:" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad distinctio exercitationem officiis sequi bbbbbbbbbbbb</textarea>
+              </mat-form-field>
+              <br>
+              
+                <button mat-raised-button color="accent" (click)="openSnackBar()" routerLink="/timeline" class="c-white btn">Registrar</button>
+            </mat-card>
+        </div>
+    
+
+
+
+
+
+      
+  
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button mat-button color="primary">Difundir</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+  </mat-accordion>

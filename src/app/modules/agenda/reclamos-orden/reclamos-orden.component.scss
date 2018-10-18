@@ -1,0 +1,133 @@
+.reclamo {
+    margin: 30px 60px 0px 60px;
+    display: flex;
+    flex-direction: column;
+    .search {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        margin-left: -180px;
+        .select {
+            background-color: white;
+            height: 50px;
+            //  width: 200px;
+            margin-right: 10px;
+            padding: 0;
+            border-radius: 5%;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+        .select1 {
+            background-color: white;
+            height: 50px;
+            //  width: 200px;
+            margin-right: 10px;
+            padding: 0;
+            border-radius: 5%;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+        }
+    }
+    .col {
+        display: flex;
+        flex-direction: row;
+        div {
+            width: 200px;
+            margin-bottom: 20px;
+            h4 {
+                font-size: 14px;
+                color: #6C798F;
+                font-weight: bold;
+                line-height: 19px;
+            }
+        }
+    }
+    .panel {
+        h3 {
+            font-size: 16px;
+            color: rgb(99, 101, 105);
+            font-weight: bold;
+            line-height: 19px;
+        }
+        .garantia {
+            .gar {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 0px;
+                .venc {
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: rgb(99, 101, 105);
+                }
+            }
+        }
+        .btn {
+            margin-top: 20px;
+        }
+    }
+    dl dd {
+        margin: 0 0 0 15px;
+    }
+}
+
+mat-panel-title {
+    width: 120px;
+}
+
+.order {
+    width: 100px;
+}
+
+input[type=text] {
+    width: 160px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 30%;
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 30px 15px 0;
+    margin-left: 100px;
+}
+
+.busqueda {
+    width: 160px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.busqueda:focus {
+    width: 30%;
+}
+
+.fecha {
+    width: 180px;
+    margin-left: 5px;
+    input {
+        font-size: 14px;
+    }
+}

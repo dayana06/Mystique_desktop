@@ -1,0 +1,24 @@
+<div class="ctn">
+    <h3 class="title">
+        Crear Nuevo Objetivo
+    </h3>
+    <mat-form-field class="valor inputs">
+        <mat-select placeholder="Seleccione el filtro ">
+            <mat-option *ngFor="let filtro of filtro" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!--  <texto>!-->
+    <mat-form-field class="example-full-width inputs">
+        <input id="inputEl" matInput placeholder="Nombre">
+    </mat-form-field><br>
+    <mat-form-field class="example-full-width inputs">
+        <input matInput placeholder="Descripción:">
+    </mat-form-field><br>
+    <!--  <boton>!-->
+    <div class="btn-fin">
+        <button mat-raised-button color="accent" class="c-white btn" mat-dialog-close>Guardar</button>
+        <button mat-raised-button color="accent" class="btn-white btn" mat-dialog-close>Cancelar</button>
+    </div>
+</div>

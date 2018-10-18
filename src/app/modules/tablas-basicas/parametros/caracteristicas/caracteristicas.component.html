@@ -1,0 +1,38 @@
+<mat-accordion>
+
+    <mat-expansion-panel *ngFor="let dato of datos" (opened)="panelOpenState = true">
+        <mat-expansion-panel-header>
+            <mat-panel-title class="title">
+                {{dato.nombreTP}}
+            </mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <mat-divider></mat-divider>
+        <div class="garantia">
+            <br>
+
+            <dl>
+                <div *ngFor="let Tpa of dato.Parametros">
+                    <div class="letra">
+                        <mat-checkbox> {{Tpa.nombre}}</mat-checkbox>
+
+
+
+                    </div>
+                    <br>
+                </div>
+            </dl>
+            <div class="boton">
+
+                <button mat-raised-button color="accent" (click)="openDialogParametro()" class="btn ">Agregar Parámetro</button>
+            </div>
+        </div>
+
+    </mat-expansion-panel>
+    <br>
+    <div class="boton">
+        <br>
+        <button mat-raised-button color="accent" (click)="openDialogTipoParametro()" class="btn">Nuevo Tipo de Parametro</button>
+    </div>
+</mat-accordion>

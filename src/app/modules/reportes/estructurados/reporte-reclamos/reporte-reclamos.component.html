@@ -1,0 +1,81 @@
+<div class="selectFilter">
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroTipoRecSelec" placeholder="Tipo Reclamo" class="letra">
+            <mat-option *ngFor="let filtroCom of filtroTipoRec" [value]="filtroCom.value">
+                {{ filtroCom.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroTipoRespSelec" placeholder="Tipo de Respuesta del reclamo" class="letra">
+            <mat-option *ngFor="let filtroTipo of filtroTipoResp" [value]="filtroTipo.value">
+                {{ filtroTipo.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+
+<div class="tabla">
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="cliente">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Cliente</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.cliente}} </mat-cell>
+        </ng-container>
+        <!-- Telefono column -->
+        <ng-container matColumnDef="orden">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Nº de Orden</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.orden}} </mat-cell>
+        </ng-container>
+        <!-- Telefono column -->
+        <ng-container matColumnDef="fecha">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Fecha</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.fecha}} </mat-cell>
+        </ng-container>
+        <!-- Cliente Column -->
+        <ng-container matColumnDef="tipo">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Tipo de Reclamo</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.tipo}} </mat-cell>
+        </ng-container>
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="descripcion">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Descripción del reclamo</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+        </ng-container>
+
+        <!-- Correo Column -->
+        <ng-container matColumnDef="tipoR">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Tipo de respuesta</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.tipoR}} </mat-cell>
+        </ng-container>
+
+        <!-- Direccion Column -->
+        <ng-container matColumnDef="resp">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Respuesta</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.resp}} </mat-cell>
+        </ng-container>
+
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+</div>

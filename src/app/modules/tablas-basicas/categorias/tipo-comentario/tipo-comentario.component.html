@@ -1,0 +1,23 @@
+<div class="botonA">
+    <button mat-raised-button color="accent" (click)="openDialogComentario()">AgregarNuevo</button>
+</div>
+<div class="ctn" style="position: relative;">
+    <div class="citas" *ngFor="let TComentario of comentarios">
+
+        <mat-card class="detalle">
+            <mat-card-content>
+                <div class="name">
+                    <span class="bold">{{TComentario.nombre}}</span>
+                    <br>
+                </div>
+                <p> {{TComentario.descripcion}}</p>
+                <p> Registrado EL:{{TComentario.fechaC}}</p><br>
+                <div class="botonEdi">
+                    <button mat-raised-button color="accent">Editar</button>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

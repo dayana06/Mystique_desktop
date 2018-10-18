@@ -1,0 +1,40 @@
+
+<div class="tabla">
+  <mat-table #table [dataSource]="dataSource" matSort>
+      <!-- Servicio Column -->
+      <ng-container matColumnDef="servicio">
+          <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+              <h3>Servicio</h3>
+          </mat-header-cell>
+          <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.nombre}} </mat-cell>
+      </ng-container>
+
+      <!-- Descripcion column -->
+      <ng-container matColumnDef="descripcion">
+          <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+              <h3>Descripción</h3>
+          </mat-header-cell>
+          <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+      </ng-container>
+
+      <!-- Duracion Column -->
+      <ng-container matColumnDef="duracion">
+          <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+              <h3>Duración (en horas)</h3>
+          </mat-header-cell>
+          <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.duracion}} </mat-cell>
+      </ng-container>
+
+     <!-- Precio Column -->
+      <ng-container matColumnDef="precio">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+            <h3>Precio</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.precio}} </mat-cell>
+    </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+</div>

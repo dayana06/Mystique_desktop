@@ -1,0 +1,33 @@
+<h1 *ngIf='filtroSelec == "semana"'>Suscripciones de esta semana</h1>
+<h1 *ngIf='filtroSelec == "mes"'>Suscripciones de este mes</h1>
+<h1 *ngIf='filtroSelec == "trimes"'>Suscripciones de este trimestre</h1>
+<h1 *ngIf='filtroSelec == "seismes"'>Suscripciones de este semestre</h1>
+<h1 *ngIf='filtroSelec == "anno"'>Suscripciones de este año</h1>
+<div class="select">
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroSelec" placeholder="Frecuencia" class="letra">
+            <mat-option *ngFor="let filtro of filtro" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div *ngIf='filtroSelec == "semana"'>
+    <canvas appGraficas *ngIf="misDatosSem.data.datasets.length > 0" tipo="pie" [datos]="misDatosSem"></canvas>
+</div>
+
+<div *ngIf='filtroSelec == "mes"'>
+    <canvas appGraficas  tipo="pie" [datos]="misDatosMes"></canvas>
+</div>
+
+<div *ngIf='filtroSelec == "trimes"'>
+    <canvas appGraficas  tipo="pie" [datos]="misDatosTrimes"></canvas>
+</div>
+
+<div *ngIf='filtroSelec == "seismes"'>
+    <canvas appGraficas  tipo="pie" [datos]="misDatosSeismes"></canvas>
+</div>
+
+<div *ngIf='filtroSelec == "anno"'>
+    <canvas appGraficas  tipo="pie" [datos]="misDatosAnno"></canvas>
+</div>

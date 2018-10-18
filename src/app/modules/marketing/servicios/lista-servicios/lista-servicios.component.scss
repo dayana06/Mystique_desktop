@@ -1,0 +1,97 @@
+/*boton, buscar y el selec*/
+
+.ctn {
+    .row {
+        display: flex;
+        flex-direction: row;
+        .search {
+            padding: 0px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            .input-search {
+                display: flex;
+                align-items: center;
+                background-color: white;
+                height: 50px;
+                width: 300px;
+                margin-top: 30px;
+                margin-left: 30px;
+                // margin-right: 20px;
+                padding: 0;
+                border-radius: 2px;
+                .inputs {
+                    margin-left: 5px;
+                    width: 250px;
+                    font-size: 13px;
+                }
+                mat-icon {
+                    margin-left: 10px;
+                    color: #A5ADBA;
+                }
+            }
+            .select {
+                background-color: white;
+                height: 50px;
+                width: 150px;
+                margin-top: 30px;
+                margin-left: 15px;
+                padding: 0;
+                border-radius: 2px;
+                align-items: center;
+                .valor {
+                    margin-left: 15px;
+                    width: 120px;
+                    font-size: 13px;
+                }
+            }
+        }
+        .boton {
+            align-self: center;
+            margin-top: 30px;
+            margin-left: 250px;
+        }
+    }
+    .carta {
+        width: 350px; //ancho
+        height: 250px; //altura
+        margin-left: 30px; //margen Dereche
+        margin-top: 30px;
+        .fila1 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-items: center;
+            justify-content: center;
+            .nombre {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                width: 50%;
+                margin-left: -20px;
+                h5 {
+                    color: rgb(67, 71, 77);
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: bold;
+                }
+            }
+            .boton {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                .btn2 {
+                    margin-left: 60px;
+                    margin-top: 10px;
+                }
+            }
+           
+        }
+        .fila2 {
+            margin-top: 20px;
+        }
+    }
+}

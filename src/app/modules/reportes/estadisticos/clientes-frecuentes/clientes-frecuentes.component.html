@@ -1,0 +1,27 @@
+<h1 *ngIf='filtroSelec == "semana"'>Clientes frecuentes esta semana</h1>
+<h1 *ngIf='filtroSelec == "mes"'>Clientes frecuentes este mes</h1>
+<div class="select">
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="tipoGraphSelec" placeholder="Frecuencia" class="letra">
+            <mat-option *ngFor="let filtro of tipoGraph" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div class="select">
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroSelec" placeholder="Frecuencia" class="letra">
+            <mat-option *ngFor="let filtro of filtro" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div *ngIf='tipoGraphSelec == "pie"'>
+    <canvas appGraficas tipo="pie" [datos]="misDatosSem"></canvas>
+</div>
+
+<div *ngIf='tipoGraphSelec == "doughnut"'>
+    <canvas appGraficas tipo="doughnut" [datos]="misDatosMes"></canvas>
+</div>

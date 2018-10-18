@@ -1,0 +1,23 @@
+<div class="ctn">
+    <h3 class="title">
+        Nuevo Aspecto para el Perfil:
+    </h3>
+
+    <!--  <texto>!-->
+    <div>
+        <mat-form-field class="example-full-width inputs" style="width: 350px;">
+            <input [(ngModel)]="nombre" matInput placeholder="Nombre del aspecto">
+        </mat-form-field>
+        <mat-form-field class="example-full-width inputs" style="width: 350px;">
+            <mat-select [(ngModel)]="categoriaServicio" placeholder="Categoría del aspecto" multiple>
+                <mat-option *ngFor="let item of categoryList" [value]="item.id">{{item.nombre}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <!--  <boton>!-->
+        <div class="btn-fin">
+            <button mat-raised-button color="accent" class="c-white btn" (click)="yesOK()">Guardar</button>
+            <button mat-raised-button color="accent" class="btn-white btn" (click)="notOK()">Cancelar</button>
+        </div>
+    </div>
+</div>

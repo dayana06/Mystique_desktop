@@ -1,0 +1,32 @@
+<div class="tabla">
+  <mat-table #table [dataSource]="dataSource" matSort>
+    
+    <!-- nombre Column -->
+    <ng-container matColumnDef="nombre">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+            <h3>Nombre de la promoción</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.nombre}} </mat-cell>
+    </ng-container>
+    
+    <!-- descripcion Column -->
+      <ng-container matColumnDef="descripcion">
+          <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+              <h3>Descripción</h3>
+          </mat-header-cell>
+          <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.descripcion}} </mat-cell>
+      </ng-container>
+
+      <!-- descuento column -->
+      <ng-container matColumnDef="descuento">
+          <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+              <h3>Porcentaje de Descuento</h3>
+          </mat-header-cell>
+          <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.porcentaje_descuento}} </mat-cell>
+      </ng-container>
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+</div>

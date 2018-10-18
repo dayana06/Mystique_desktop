@@ -1,0 +1,31 @@
+<div class="ctn">
+    <h1 *ngIf='filtroSelec == "mas"'>Servicios más solicitados</h1>
+    <h1 *ngIf='filtroSelec == "menos" '>Servicios menos solicitados</h1>
+    <div class="filtros">
+        <div class="select">
+            <mat-form-field class="valor">
+                <mat-select [(ngModel)]="filtroSelec" placeholder="Tipo de búsqueda" class="letra">
+                    <mat-option *ngFor="let filtro of filtro" selected="todo" [value]="filtro.value">
+                        {{ filtro.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="select">
+            <mat-form-field class="valor">
+                <mat-select [(ngModel)]="filtroMesSelec" placeholder="Frecuencia" class="letra">
+                    <mat-option *ngFor="let filtro of filtroMes" [value]="filtro.value">
+                        {{ filtro.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div *ngIf='filtroSelec == "mas"'>
+        <canvas appGraficas tipo="horizontalBar" [datos]="datosMas"></canvas>
+    </div>
+    <div *ngIf='filtroSelec == "menos"'>
+        <canvas appGraficas tipo="horizontalBar" [datos]="datosMenos"></canvas>
+    </div>
+</div>

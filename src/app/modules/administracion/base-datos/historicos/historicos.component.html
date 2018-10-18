@@ -1,0 +1,31 @@
+<div class="ctn">
+    <mat-form-field *ngIf="filtroSelec != ''">
+        <input matInput [matDatepickerFilter]="miFiltro" [matDatepicker]="picker" placeholder="Desde la fecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> &nbsp;&nbsp;&nbsp;
+    <mat-form-field *ngIf="filtroSelec != ''">
+        <input matInput [matDatepickerFilter]="miFiltro" [matDatepicker]="picker" placeholder="Hasta la fecha">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> &nbsp;&nbsp;&nbsp;
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroSelec" placeholder="Históricos" class="letra">
+            <mat-option *ngFor="let filtro of filtro" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <br>
+    <div *ngIf="filtroSelec == 'servicio'">
+        <app-historico-servicio></app-historico-servicio>
+    </div>
+    <div *ngIf="filtroSelec == 'promociones'">
+        <app-historico-promocion></app-historico-promocion>
+    </div>
+
+    <div *ngIf="filtroSelec == 'reclamos'">
+        <app-historico-reclamo></app-historico-reclamo>
+    </div>
+
+</div>

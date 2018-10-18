@@ -1,0 +1,68 @@
+
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between">
+    <button #botonescondido style="display: none;"></button><!--ACTIVA LOS CAMBIOS DE LOS COLORES EN CADA BOTON-->
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color1 type="color" style="display: none;" value="#F0328E" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%;" [style.backgroundColor]="color1.value" (click)="color1.click()" >{{color1.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>PRIMARIO</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color2 type="color" style="display: none;" value="#2743E4" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%;" [style.backgroundColor]="color2.value" (click)="color2.click()" >{{color2.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>SECUNDARIO</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color3 type="color" style="display: none;" value="#F8F8F9" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%; color:black;" [style.backgroundColor]="color3.value" (click)="color3.click()" >{{color3.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>FONDO LIGERO</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color4 type="color" style="display: none;" value="#232333" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%;" [style.backgroundColor]="color4.value" (click)="color4.click()" >{{color4.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>TEXTOS</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color5 type="color" style="display: none;" value="#FFFFFF" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%; color:black;" [style.backgroundColor]="color5.value" (click)="color5.click()" >{{color5.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>CABECERA</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color6 type="color" style="display: none;" value="#232333" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%;" [style.backgroundColor]="color6.value" (click)="color6.click()" >{{color6.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>TEXTOS DE LA CABECERA</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: center;">
+          <input #color7 type="color" style="display: none;" value="#FFFFFF" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%; color:black;" [style.backgroundColor]="color7.value" (click)="color7.click()" >{{color7.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>FOOTER</strong></p>
+  </div>
+
+  <div style="width:100px;height:130px; margin: 10px;">
+      <div style="width:100px;height:100px;display: flex;justify-content: space-around;">
+          <input #color8 type="color" style="display: none;" value="#232333" (change)="botonescondido.click()">
+          <button mat-fab style="width: 100%; height: 100%;" [style.backgroundColor]="color8.value" (click)="color8.click()" >{{color8.value.slice(1) | uppercase}}</button>
+      </div>
+    <p style="margin-top:5px;display: flex;justify-content: center;text-align: center;"><strong>TEXTOS DEL FOOTER</strong></p>
+  </div>
+
+</div>

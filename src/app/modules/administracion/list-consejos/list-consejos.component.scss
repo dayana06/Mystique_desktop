@@ -1,0 +1,54 @@
+example-header {
+    position: relative;
+    min-height: 164px;
+    padding: 10px 5px 0;
+    .button-row {
+        width: auto;
+        position: absolute;
+        z-index: 1;
+        right: 10px;
+        top: 20px;
+    }
+}
+
+.mat-form-field {
+    font-size: 20px;
+    width: 100%;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+    margin: 15px;
+}
+
+input[type=text] {
+    width: 165px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 280px;
+}
+
+.example-card {
+    max-width: 400px;
+    max-height: 500px;
+}
+
+.imagen {
+    background-size: cover;
+}
+
+.card-img {
+    width: 400px;
+}

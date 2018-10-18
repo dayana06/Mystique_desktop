@@ -1,0 +1,166 @@
+<!--<div>
+    {{infoCliente.nombre}} <br>
+    {{infoCliente.apellido}}<br>
+    {{infoCliente.correo}}<br>
+    {{infoCliente.fecha_nacimiento}}<br>
+    {{infoCliente.telefono}}
+</div>-->
+
+<div style="width: 100%; margin-top: -35px;">
+    <button mat-raised-button color="accent" style="position: absolute; right: 60px;" (click)="editarCliente()">Actualizar</button>
+</div>
+<br><br>
+
+<div class="div-inicial">
+    <mat-card style="display:flex; flex-wrap:wrap;">
+        <div class="div-dentro">
+            <h4>Información de <span [style.color]="(genero=='m')?'#0065ff':'#fd0087'">{{infoCliente.nombre+' '+infoCliente.apellido}}</span></h4>
+            <div style="height: 150px;opacity: 0.75;text-align: center;">
+                <mat-icon [style.color]="(genero=='m')?'#0065ff':'#fd0087'" style="font-size: 150px;margin-left: -125px;">account_circle</mat-icon>
+            </div>
+        </div>
+
+        <mat-card-content style="min-width: 180px; width: 60%;">
+            <div class="this-matcardcontent-div">
+                <mat-form-field>
+                    <!--<input matInput placeholder="Nombre" (keyup)="infoCliente.nombre=$event.currentTarget.value" [value]="infoCliente.nombre">-->
+                    <input matInput placeholder="Nombre" [(ngModel)]="infoCliente.nombre">
+                </mat-form-field>
+                <div style="width:10px;"></div>
+                <mat-form-field>
+                    <input matInput placeholder="Apellido" [(ngModel)]="infoCliente.apellido">
+                </mat-form-field>
+            </div>
+
+
+            <mat-form-field class="mat-f-f">
+                <input type="email" matInput placeholder="Correo" [(ngModel)]="infoCliente.correo">
+            </mat-form-field>
+
+
+            <!--<label mat-subheader style="font-size: 11px;opacity: 0.5;margin: 0 0 -5px -15px;">Sexo</label>
+            <mat-radio-group class="div-radio-group" [value]="obtenerGenero()">
+                <mat-radio-button disabled value="f">Mujer</mat-radio-button><br>
+                <br>
+                <mat-radio-button disabled value="m">Hombre</mat-radio-button>
+            </mat-radio-group>-->
+            <br>
+            <mat-form-field class="mat-f-f">
+                <input matInput [matDatepicker]="picker" placeholder="Fecha de nacimiento" [(ngModel)]="infoCliente.fecha_nacimiento">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+           <!--<mat-form-field class="mat-f-f">
+                <input matInput placeholder="Fecha de nacimiento" [ngModel]="infoCliente.fecha_nacimiento | date:'dd-MM-yyyy'" 
+                    (ngModelChange)="infoCliente.fecha_nacimiento=$event" type="datetime" />-->
+                <!--<input type="datetime" matInput placeholder="Fecha de nacimiento" [(ngModel)]="infoCliente.fecha_nacimiento">-->
+            <!--</mat-form-field>-->
+
+            <mat-form-field class="mat-f-f">
+                <input type="tel" matInput placeholder="Telefono" [(ngModel)]="infoCliente.telefono">
+            </mat-form-field>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+
+
+<div style="display: flex; flex-direction: row; padding: 15px 15px 15px 30px;">
+    <div style="min-width: 30%;padding: 5px;">
+        <h4 class="opaque">Aspecto</h4><br>
+        <mat-card style="padding: 0;">
+            <div *ngFor="let tipo_param of tipParametros; index as tp">
+                <div *ngIf="tipo_param.estatus!='I'">
+                    <div *ngIf="tp!=0">
+                        <mat-divider></mat-divider>
+                    </div>
+                    <div style="display: flex;padding: 15px;" (click)="actual_tipP=tipo_param.id;setearActualPar()"> <!--(click)="checkear1(tipo_param)">-->
+                        <span>{{tipo_param.nombre}}</span>
+                        <span style="flex: 1 1 auto;"></span>
+                        <div [class]="(actual_tipP==tipo_param.id)?'active':'opaque'">
+                            <mat-icon>arrow_forward</mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+
+
+    <div *ngIf="parametros.length > 0" style="min-width: 30%;padding: 5px;">
+        <h4 class="opaque" *ngIf="actual_tipP">Caracteristica</h4><br>
+        <mat-card style="padding: 0;">
+            <div *ngFor="let param of parametros; index as p">
+                <div *ngIf="(param.nombre.toLowerCase()!='sexo' && param.nombre.toLowerCase()!='rango de edad') && param.id_tipo_parametro==actual_tipP && param.estatus!='I'">
+                <div *ngIf="p!=0">
+                    <mat-divider></mat-divider>
+                </div>
+                <div style="display: flex;padding: 15px;" (click)="actual_par=param.id;setearActualValPar()"><!--(click)="checkear2(param)">-->
+                    <span>{{param.nombre}}</span>
+                    <span style="flex: 1 1 auto;"></span>
+                    <div [class]="(actual_par==param.id)?'active':'opaque'">
+                        <mat-icon>arrow_forward</mat-icon>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+
+    <div *ngIf="valParametros.length > 0 && actual_par && actual_valP" style="min-width: 30%;padding: 5px;">
+        <h4 class="opaque">Valor</h4><br>
+        <div style="display: flex; flex-wrap: wrap;">
+            <mat-card style="padding-top:0;">
+                <mat-card-content>
+                    <div *ngFor="let valor of valParametros">
+                        <div *ngIf="valor.id_parametro==actual_par && valor.estatus!='I'">
+                            <mat-divider></mat-divider><br>
+                        <mat-radio-button [checked]="estaSeleccionadoVP(valor.id)"
+                            (change)="gestionarPerfil(valor,$event)">
+                            <h4>&nbsp;&nbsp;{{valor.nombre}}</h4>
+                        </mat-radio-button>
+                        <p style="padding: 10px 40px 0 40px;">{{valor.descripcion}}</p><br>
+                    </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <!--<div style="padding-top: 5px; width:95%; display:flex; justify-content: flex-end;">
+                <button mat-raised-button color="accent" (click)="siguiente()">Siguiente</button>
+                </div>-->
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--
+<div>
+    Valores Actuales:<br>
+    *********************<br>
+    <span *ngFor="let obj of valoresActuales">
+        {{" "+obj.id+", "+obj.id_parametro}} __
+    </span><hr><hr><br><br>
+    Valores En Seleccion:<br>
+    *********************<<br>
+    <span *ngFor="let item of valoresEnSeleccion">
+        {{" "+item.id+", "+item.id_parametro}} __
+    </span><hr>
+</div>
+
+
+<div>
+    {{pent}}
+</div>
+
+
+<div>
+    {{ perfil_cliente | json }}
+    <div style="width: 100px; height: 20px; background-color: yellow;"></div>
+    {{ tipParametros | json }}
+    <div style="width: 100px; height: 20px; background-color: blue;"></div>
+    {{ parametros | json }}
+    <div style="width: 100px; height: 20px; background-color: red;"></div>
+    {{ valParametros | json }}
+</div>-->

@@ -1,0 +1,66 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" (keyup)="applyFilter($event.target.value)" placeholder="Buscar por cliente">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+</div>
+
+<mat-table #table [dataSource]="dataSource">
+
+    <!-- Cliente Column -->
+    <ng-container matColumnDef="cliente">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Cliente</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.cliente}} </mat-cell>
+    </ng-container>
+
+    <!-- Telefono column -->
+    <ng-container matColumnDef="telefono">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Teléfono</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.telefono}} </mat-cell>
+    </ng-container>
+
+    <!-- Correo Column -->
+    <ng-container matColumnDef="correo">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Correo</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.correo}} </mat-cell>
+    </ng-container>
+
+    <!-- Direccion Column -->
+    <ng-container matColumnDef="direccion">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Dirección</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.direccion}} </mat-cell>
+    </ng-container>
+
+    <!-- menu Column -->
+    <ng-container matColumnDef="menu">
+        <mat-header-cell *matHeaderCellDef>
+
+        </mat-header-cell>
+        <mat-cell style="display:flex; justify-content:flex-end;" *matCellDef="let element">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="irACliente(element)">
+                    <mat-icon>edit</mat-icon> Editar Cliente<!--account_circle-->
+                </button>
+                <button mat-menu-item (click)="cli_selected=element;mostrarMensajeDeConfirmacion('¿Seguro que desea eliminar a este cliente?')">
+                    <mat-icon>delete</mat-icon> Eliminar<!--view_list-->
+                </button>
+            </mat-menu>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

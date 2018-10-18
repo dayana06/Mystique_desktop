@@ -1,0 +1,42 @@
+.div-inicial{
+    padding: 15px 15px 15px 30px; min-width: 260px;
+    @media screen and (max-width:859px){
+        max-width: 275px;
+        margin-left:20%;
+    }
+
+    .div-dentro{
+         min-width: 180px; width: 40%;
+    }
+
+    mat-card-content{
+        .this-matcardcontent-div{
+            display: flex;
+            flex-wrap: wrap;
+            mat-form-field{
+                width: 48%;
+                @media screen and (max-width:859px){
+                    width: 94%;
+                }
+            }
+        }
+        .mat-f-f{
+            width: 98%;
+        }
+        .div-radio-button{
+            display: flex; flex-direction: column;
+        }
+    }
+}
+
+
+
+.opaque{
+    color: black;
+    opacity: 0.5;
+}
+.active{
+    color: deeppink;
+    opacity: 1.0;
+}
+

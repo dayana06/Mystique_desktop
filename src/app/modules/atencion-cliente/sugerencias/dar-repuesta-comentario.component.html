@@ -1,0 +1,28 @@
+<div class="ctn">
+    <!--  <mat-card class="card">!-->
+    <h3 class="title">
+        Respuesta 
+    </h3>
+    <div class="select">
+        <mat-form-field class="valor inputs">
+            <mat-select name="tipo" placeholder="Seleccione el tipo de respuesta " [(ngModel)]="datosMostrar.id_tipo_respuesta_comentario">
+                <mat-option name="opc" *ngFor="let item of resp" [value]="item.id" >
+                    {{ item.nombre }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+       <!--  <texto>!-->
+        <mat-form-field class="example-full-width inputs">
+            <textarea  name="descripcion" matInput placeholder="descripcion de la repuesta" [(ngModel)]="datosMostrar.descripcion" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad distinctio exercitationem officiis sequi</textarea>
+        </mat-form-field>
+
+    <!--  <boton>!-->
+    <div class="btn-fin">
+        <button mat-raised-button color="accent"  (click)="postRepuestaComentario()" class="c-white btn">Guardar</button>
+        <button mat-raised-button color="accent" class="btn-white btn">Cancelar</button>
+
+    </div>
+
+    <!--</mat-card>!-->
+</div>

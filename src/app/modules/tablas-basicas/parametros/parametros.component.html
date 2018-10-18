@@ -1,0 +1,152 @@
+<div class="heading-panel">
+    <div style="text-align: right;" class="btna">
+        <button mat-raised-button class="efectoboton" matTooltip="Presione aquí para ver un manual en PDF con lo que necesita saber sobre la galería" (click)="myFunctiondeAyuda('http://localhost:3000/files/pdf/parametros.pdf')">
+                                      <mat-icon>help</mat-icon> Ayuda
+                                </button>
+    </div>
+    <!--Controla el contenido que se despliega en cada tab-->
+    <mat-tab-group #grupoTabs (change)="cleanLists()">
+        <!--(click)="verificarTab(grupoTabs)" (keydown)="verificarTab(grupoTabs)"-->
+
+        <mat-tab label="Aspectos a considerar" (click)="cleanLists()">
+            <!--++++++-->
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h3 style="  color: #344563;">Configura los aspectos a considerar en los clientes</h3>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==0">-->
+                <mat-card style="padding: 50px 120px;">
+                    <div class="row">
+                        <div class="garantia" style="margin-top: 25px;">
+                            <dl>
+                                <mat-grid-list cols="12" rowHeight="40px">
+                                    <mat-grid-tile [colspan]="6" [rowspan]="1">
+                                        <h3> Nombre </h3>
+                                    </mat-grid-tile>
+                                    <mat-grid-tile [colspan]="3" [rowspan]="1">
+                                        <h3>Peluquería</h3>
+                                    </mat-grid-tile>
+                                    <mat-grid-tile [colspan]="3" [rowspan]="1">
+                                        <h3> Maquillaje </h3>
+                                    </mat-grid-tile>
+                                </mat-grid-list>
+                                <div *ngFor="let dato of listadoTipoParametros">
+                                    <div class="letra" style="margin-top:20px;">
+                                        <mat-grid-list cols="12" rowHeight="40px">
+                                            <mat-grid-tile [colspan]="6" [rowspan]="1"> {{dato.nombre}}</mat-grid-tile>
+                                            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                                                <ng-container *ngFor="let categoria of categoriaParametro">
+                                                    <mat-checkbox *ngIf="categoria.id_tipo_parametro == dato.id && categoria.id_categoria_servicio == 1" [checked]="categoria.id_tipo_parametro == dato.id && categoria.id_categoria_servicio == 1" [disabled]="true"></mat-checkbox>
+                                                </ng-container>
+                                            </mat-grid-tile>
+                                            <mat-grid-tile [colspan]="3" [rowspan]="1">
+                                                <ng-container *ngFor="let categoria of categoriaParametro">
+                                                    <mat-checkbox *ngIf="categoria.id_tipo_parametro == dato.id && categoria.id_categoria_servicio == 2" [checked]="categoria.id_tipo_parametro == dato.id && categoria.id_categoria_servicio == 2" [disabled]="true"></mat-checkbox>
+                                                </ng-container>
+                                            </mat-grid-tile>
+                                        </mat-grid-list>
+                                    </div>
+                                </div>
+                            </dl>
+                            <div style="margin-top: 25px;">
+                                <button mat-raised-button color="accent" (click)="openDialogTipoParametro()" class="btn">Nuevo Aspecto</button>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+                <!--</div>-->
+            </div>
+            <!--++++++-->
+        </mat-tab>
+
+        <mat-tab label="Características" (click)="cleanLists()">
+            <!--++++++-->
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h4 style="opacity: 0.5;">Configura las características de los aspectos a considerar en los clientes</h4>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==1">-->
+                <mat-card style="padding: 50px 120px;">
+                    <div class="row">
+                        <div class="garantia" style="margin-top: 25px;">
+                            <div class="row">
+                                <mat-form-field style="width: 200px;">
+                                    <mat-select placeholder="Seleccione característica" value="0">
+                                        <mat-option *ngFor="let dato of listadoTipoParametros" [value]="dato" (click)="cargarListaCaracteristica(dato.id)">
+                                            {{dato.nombre}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <ng-container *ngIf="showCaracteristica">
+                                <dl>
+                                    <h3 style="margin-top:10px;"> Nombre </h3>
+                                    <div *ngFor="let Tpa of parametrosAListar">
+                                        <div class="letra" style="margin-top:30px;">
+                                            {{Tpa.nombre}}
+                                        </div>
+                                    </div>
+                                </dl>
+                                <div style="margin-top: 25px;">
+                                    <button mat-raised-button color="accent" (click)="openDialogParametro()" class="btn">Nueva característica</button>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </mat-card>
+                <!--</div>-->
+            </div>
+            <!--++++++-->
+        </mat-tab>
+
+        <mat-tab label="Valores de la características" (click)="cleanLists()">
+            <!--++++++-->
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h4 style="opacity: 0.5;">Configura los valores de las características de los aspectos a considerar en los clientes</h4>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==2">-->
+                <mat-card style="padding: 50px 120px;">
+                    <div class="row">
+                        <div class="garantia" style="margin-top: 25px;">
+                            <div class="row">
+                                <mat-form-field style="width: 200px;">
+                                    <mat-select placeholder="Selecciona categoría" value="0" (click)="configurarValoresParametro()">
+                                        <mat-option *ngFor="let dato of parametrosSelect" [value]="dato" (click)="cargarListaValores(dato)">
+                                            {{dato}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <ng-container *ngIf="showValores">
+                                <dl>
+                                    <mat-grid-list cols="12" rowHeight="40px">
+                                        <mat-grid-tile [colspan]="6" [rowspan]="1">
+                                            <h3> Nombre </h3>
+                                        </mat-grid-tile>
+                                        <mat-grid-tile [colspan]="6" [rowspan]="1">
+                                            <h3>Descripción</h3>
+                                        </mat-grid-tile>
+                                    </mat-grid-list>
+                                    <div *ngFor="let Tpa of listadoValorParametro">
+                                        <div *ngIf="Tpa.id_parametro == valorAMostrar" class="letra" style="margin-top:20px;">
+                                            <mat-grid-list cols="12" rowHeight="100px">
+                                                <mat-grid-tile [colspan]="6" [rowspan]="1"> {{Tpa.nombre}}</mat-grid-tile>
+                                                <mat-grid-tile [colspan]="6" [rowspan]="1">
+                                                    {{Tpa.descripcion}}
+                                                </mat-grid-tile>
+                                            </mat-grid-list>
+                                        </div>
+                                    </div>
+                                </dl>
+                                <div style="margin-top: 25px;">
+                                    <button mat-raised-button color="accent" (click)="openDialogValorParametro()" class="btn">Nuevo valor</button>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </mat-card>
+                <!--</div>-->
+            </div>
+            <!--++++++-->
+        </mat-tab>
+    </mat-tab-group>
+
+</div>

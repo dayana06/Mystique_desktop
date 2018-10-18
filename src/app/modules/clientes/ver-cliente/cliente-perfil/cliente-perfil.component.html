@@ -1,0 +1,63 @@
+    <div class="boton">
+        <span class="span1" matTooltip="Listado"><button mat-raised-button routerLink="../"><mat-icon>keyboard_backspace</mat-icon> Volver</button></span>
+        <div class="separador"></div>
+        <div class="div-para-rueda">
+            <div class="div-rueda">Completitud del perfil: &nbsp;&nbsp;&nbsp;75%
+                <mat-progress-spinner [style.opacity]="'0.2'" color="primary" diameter="50" mode="determinate" value="100"></mat-progress-spinner>
+                <mat-progress-spinner color="accent" diameter="50" mode="determinate" value="75"></mat-progress-spinner>
+            </div>
+        </div>
+    </div>
+
+    <div class="ctn-perfil">
+        <mat-accordion class="div-acordeon">
+            <!--............................................................................................-->
+            <mat-expansion-panel *ngFor="let tipo_param of listaTipoParam; index as tp"
+            hideToggle="true" (opened)="icono='arrow_drop_up'" (closed)="icono='arrow_drop_down'">
+                <mat-expansion-panel-header style="padding-right: 0;">
+                    <mat-panel-title>{{tipo_param.nombre}}</mat-panel-title>
+                    <span style="flex: 1 1 auto;"></span>
+                    <span><mat-panel-description><mat-icon>{{icono}}</mat-icon></mat-panel-description></span>
+            </mat-expansion-panel-header>
+            <div *ngFor="let parametro of parametros; index as p; last as l;">
+                <div *ngIf="parametro.id_tipo_parametro==tipo_param.id">
+                    <mat-divider></mat-divider>
+                    <div style="display: flex;">
+                            <div style="padding-top: 10px;">{{parametro.nombre}}</div>
+                            <span style="flex: 1 1 auto;"></span>
+                            <span><button mat-icon-button (click)="checkear(parametro)">
+                                <span *ngIf="parametro.estatus=='activo'; else elseEstatus">
+                                    <mat-icon style="padding-top: 8px;">check_circle</mat-icon>
+                                </span>
+                                <ng-template #elseEstatus>
+                                     <mat-icon>radio_button_unchecked</mat-icon>
+                                </ng-template>
+                                </button></span>
+                    </div>
+                </div>
+            </div>
+            </mat-expansion-panel>
+            <!--............................................................................................-->
+        </mat-accordion>
+        
+
+        <div class="valores-parametro" *ngIf="datos_a_mostrar.length > 0" style="height: 600px;">
+            <div style="display: flex; flex-wrap: wrap;">
+                <mat-card style="width: 95%; margin: 5px; margin-top: 0px;">
+                    <mat-card-title>
+                        {{datos_a_mostrar[n].nombre_parametro.nombre}}
+                    </mat-card-title>
+                    <mat-card-content>
+                        <div *ngFor="let datos of datos_a_mostrar[n].valores_parametro">
+                            <mat-divider></mat-divider><br>
+                            <mat-radio-button value=""><h4>&nbsp;&nbsp;{{datos.nombre}}</h4></mat-radio-button>
+                            <p style="padding: 10px 40px 0 40px;">{{datos.descripcion}}</p><br>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <div style="padding-top: 5px; width:95%; display:flex; justify-content: flex-end;">
+                <button mat-raised-button color="accent" (click)="siguiente()">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </div>

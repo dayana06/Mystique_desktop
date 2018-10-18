@@ -1,0 +1,16 @@
+<div class="top">
+
+    <h3 class="title">Seleccione los aspectos que se deben seleccionar en la suscripción</h3>
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroSelec" placeholder="Seleccione el tipo de aspecto" class="letra" (change)="loadList();">
+            <mat-option *ngFor="let filtro of listadoTipoParametro" value="{{filtro.id}}">
+                {{ filtro.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<mat-card>
+    <div>
+        <mat-checkbox id="checkbox{{item.id}}" *ngFor="let item of listToShow" (change)="loadQuestion(item.id);" [checked]="item.visible">{{item.nombre}}</mat-checkbox>
+    </div>
+</mat-card>

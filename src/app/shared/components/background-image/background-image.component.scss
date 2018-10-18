@@ -1,0 +1,16 @@
+.ctn {
+    height: 100hv;
+    .image {
+        height: 50%;
+        background-size: cover;
+        background-attachment: unset;
+        background-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .content {
+        height: 100%;
+    }
+}

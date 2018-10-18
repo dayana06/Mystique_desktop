@@ -1,0 +1,17 @@
+<div style="display: flex; flex-direction: column;">
+    <mat-form-field style="max-width: 400px;">
+        <mat-select placeholder="Titulos" style="font-weight: bold;">
+          <mat-option *ngFor="let titulo of titulos" [value]="titulo.value">
+            {{ titulo.nombre }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field style="max-width: 400px;">
+        <mat-select placeholder="Subtitulos/Menus" style="font-size: small;">
+            <mat-option *ngFor="let subtimenu of subtimenus" [value]="subtimenu.value">
+              {{ subtimenu.nombre }}
+            </mat-option>
+          </mat-select>
+    </mat-form-field>
+    </div>

@@ -1,0 +1,94 @@
+<div class="ctn">
+
+    <div class="registro">
+
+
+        <mat-card class="detalle">
+            <!-- ESTO ES LO NO QUE GUARDA -->
+            <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Nombre" [(ngModel)]="datos_negocio.nombre" [value]="datosMostrar.nombre">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="RIF: " [value]="datosMostrar.rif" [(ngModel)]="datos_negocio.rif">
+            </mat-form-field>
+            <!--HASTA AQUI-->
+            <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Hora de inicio de la jornada laboral" [(ngModel)]="datos_negocio.hora_inicio_trabajo" [value]="datosMostrar.hora_inicio_trabajo" type="time">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Hora final de la jornada laboral" [(ngModel)]="datos_negocio.hora_fin_trabajo" [value]="datosMostrar.hora_inicio_trabajo" type="time">
+            </mat-form-field>
+            <mat-divider></mat-divider><br><br>
+            <div>
+                <p>Razón de ser del Negocio:</p><br>
+            </div>
+
+            <mat-form-field class="textarea">
+                <textarea matInput placeholder="Descripción del negocio" [(ngModel)]="datosModificarDesc.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarDesc.descripcion}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+                <textarea matInput placeholder="Mision" [(ngModel)]="datosModificarMision.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarMision.descripcion}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+                <textarea matInput placeholder="Vision" [(ngModel)]="datosModificarVision.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarVision.descripcion}}</textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width inputs">
+                <textarea matInput placeholder="Objetivo general" [(ngModel)]="datosModificarObjetivoGe.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarObjetivoG.descripcion}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+                <textarea matInput placeholder="Objetivo especifico" [(ngModel)]="datosModificarObjetivoE1.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarObjetivoE1.descripcion}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+                <textarea matInput placeholder="Objetivo especifico" [(ngModel)]="datosModificarObjetivoE2.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarObjetivoE2.descripcion}}</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+
+                <textarea matInput placeholder="Objetivo especifico" [(ngModel)]="datosModificarObjetivoE3.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarObjetivoE3.descripcion}}</textarea>
+            </mat-form-field>
+
+
+            <mat-divider></mat-divider><br><br>
+            <div>
+                <p> Datos de Contacto:</p><br>
+            </div>
+            <mat-form-field class="valor inputs">
+                <mat-select placeholder="Seleccione el estado ">
+                    <mat-option *ngFor="let filtro of estado" [value]="filtro.value">
+                        {{ filtro.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <!--  <selec>!-->
+            <div class="select">
+                <mat-form-field class="valor inputs">
+                    <mat-select placeholder="Selecciona la ciudad ">
+                        <mat-option *ngFor="let filtro of filtro" [value]="filtro.value">
+                            {{ filtro.viewValue }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field class="textarea">
+                <textarea matInput placeholder="Dirección" [(ngModel)]="datosModificarDirec.descripcion" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="1">{{datosMostrarDirec.descripcion}}</textarea>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width inputs">
+                <input type="email" matInput placeholder="Correo" [(ngModel)]="datosModificarCorreo.descripcion" [value]="datosMostrarCorreo.descripcion">
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width inputs">
+                <input type="text" matInput placeholder="Teléfono" [(ngModel)]="datosModificarTelefono.descripcion" [value]="datosMostrarTelefonoc.descripcion">
+
+                <!--ESTO TAMPOCO-->
+            </mat-form-field>
+            <!--////////////////////-->
+
+            <button mat-raised-button color="accent" (click)="update()">Guardar</button>
+        </mat-card>
+
+    </div>
+</div>

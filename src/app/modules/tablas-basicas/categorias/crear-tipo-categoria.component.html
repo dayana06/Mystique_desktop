@@ -1,0 +1,16 @@
+<div class="ctn">
+    <h3 class="title">
+        Crear Nueva Categoría:
+    </h3>
+
+    <!--  <texto>!-->
+    <mat-form-field style="margin-top: 20px;"  class="example-full-width inputs">
+        <input [(ngModel)]="name" matInput placeholder="Nombre">
+    </mat-form-field>
+    <br>
+    <!--  <boton>!-->
+    <div style="margin-top: 20px;" class="btn-fin">
+        <button mat-raised-button color="accent" class="c-white btn" mat-dialog-close (click)="yesOK()">Guardar</button>
+        <button mat-raised-button color="accent" class="btn-white btn" mat-dialog-close (click)="notOK()">Cancelar</button>
+    </div>
+</div>

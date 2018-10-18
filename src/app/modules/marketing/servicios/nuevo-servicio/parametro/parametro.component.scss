@@ -1,0 +1,47 @@
+.boton {
+    margin-top: 25px;
+    margin-left: 70px;
+    display: flex;
+    .span1{flex:0;}.separador{flex:auto;}.div-para-rueda{flex:1; display: flex; justify-content: flex-end; padding: 0 25px 10px 0;
+        .div-rueda{position: relative;
+            mat-progress-spinner{
+                position: absolute;
+                /*Para Cifras de 1*//*top: -14px;
+                right: -15px;*/
+                /*Para Cifras de 2*/top: -14px;
+                right: -10px;
+                /*Para Cifras de 3*//*top: -14px;
+                right: -5px;*/
+            }
+        }
+    }
+}
+
+.ctn-perfil {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    margin-top: 30px;
+    padding: 5px;
+
+    .div-acordeon{
+        min-width: 35%;
+        padding: 5px;
+    }
+    .valores-parametro{
+        max-width: 65%;
+        padding: 5px;
+    }
+    
+    
+}
+.btn-fin {
+    display: flex;
+    flex-direction: row;
+    .btn {
+       // margin-top: 10px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+    }
+}
+

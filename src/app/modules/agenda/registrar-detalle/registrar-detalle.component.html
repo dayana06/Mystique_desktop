@@ -1,0 +1,115 @@
+<div class="content">
+    <div class="boton">
+        <span matTooltip="Citas"><button mat-raised-button routerLink="/citas"><mat-icon>keyboard_backspace</mat-icon> Volver</button></span>
+    </div>
+    <div style="text-align: right;" class="btna">
+        <button mat-raised-button class="efectoboton" matTooltip="Presione aquí para ver un manual en PDF con lo que necesita saber sobre la galería" (click)="myFunctiondeAyuda('http://localhost:3000/files/pdf/detalle_del_servicio.pdf')">
+                  <mat-icon>help</mat-icon> Ayuda
+            </button>
+    </div>
+    <div class="ctn">
+        <div class="registro">
+            <h4>Registro de servicio prestado</h4>
+            <mat-card class="detalle">
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Cliente" [(value)]="nombreCliente" disabled>
+                </mat-form-field>
+                <mat-form-field class="valor inputs">
+                    <mat-select placeholder="Servicios de peluquería " [(ngModel)]="servAux" multiple>
+                        <!--<mat-select-trigger>
+                            {{servicioPSeleccionados ? servicioPSeleccionados[0] : ''}}
+                            <span *ngIf="servicioPSeleccionados.length > 1">
+                                        (+{{servicioPSeleccionados.length - 1}} otros)
+                                    </span>
+                                    [(ngModel)]="serviciosP[i].select"
+                        </mat-select-trigger>-->
+                        <mat-option color="accent" *ngFor="let serv of orden.servicios_solicitados, let i = index" [value]="serv">{{serv.tipo_servicio}} {{serv.nombre_servicio}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="demo-chip-list inputs">
+                    <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let ins of servicioPSeleccionados" [selectable]="selectable" [removable]="removable">
+                            {{ins}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Servicios de peluquería prestados" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" disabled/>
+                    </mat-chip-list>
+                </mat-form-field>
+                <!--        <mat-form-field class="valor inputs" *ngIf="servM">
+                    <mat-select placeholder="Servicios de maquillaje " [(ngModel)]="servicioMSeleccionados" multiple>
+                        <mat-select-trigger>
+                            {{servicioMSeleccionados ? servicioMSeleccionados[0] : ''}}
+                            <span *ngIf="servicioMSeleccionados.length > 1">
+                                        (+{{servicioMSeleccionados.length - 1}} otros)
+                                    </span>
+                        </mat-select-trigger>
+                        <mat-option color="accent" *ngFor="let serv of serviciosM" [value]="serv.nombre_servicio">{{serv.tipo_servicio}} {{serv.nombre_servicio}} </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="demo-chip-list inputs" *ngIf="servM">
+                    <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let ins of servicioMSeleccionados" [selectable]="selectable">
+                            {{ins}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Servicios de peluquería prestados" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" disabled/>
+                    </mat-chip-list>
+                </mat-form-field>-->
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Empleado(s) encargados de los servicios" value=" " disabled>
+                    <span *ngFor="let empleado of orden.empleados_asignados">{{empleado.nombre}} {{empleado.apellido}}, </span>
+                </mat-form-field>
+
+                <!--  <mat-form-field class="example-full-width inputs">
+                    <textarea matInput placeholder="Comentarios" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad distinctio exercitationem officiis sequi</textarea>
+                </mat-form-field>-->
+                <button mat-raised-button color="accent" (click)="postOrden()" class="c-white btn">Registrar</button>
+            </mat-card>
+        </div>
+        <div class="right">
+            <div class="incidencias">
+                <h4>Incidencias</h4>
+                <mat-card class="lista-incidencia" *ngFor="let inc of incidencia">
+                    <h5>{{inc.nombre}}</h5><br>
+                    <mat-card-content class="content">{{inc.descripcion}}</mat-card-content>
+                </mat-card>
+                <!--  <mat-card class="lista-incidencia">
+                    <h5>Baños de color</h5><br>
+                    <mat-card-content class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit.</mat-card-content>
+                </mat-card>-->
+                <div class="">
+                    <button mat-button class="btn" (click)="openDialog()">AGREGAR INCIDENCIA</button>
+                </div>
+            </div>
+            <div class="insumos">
+                <h4>Insumos</h4>
+                <!-- <app-insumos-utilizados></app-insumos-utilizados>-->
+                <mat-card class="add">
+                    <div *ngFor="let order of servAux">
+                        <div class="title">
+                            <h5>Insumos de {{order.tipo_servicio}} {{order.nombre_servicio}} </h5>
+                        </div>
+
+                        <div class="insumos" *ngFor="let insumos of order.insumos_asociados">
+                            <div class="left">
+                                <h6>{{insumos.tipo_insumo}} {{insumos.nombre}} </h6>
+                            </div>
+                            <div class="right">
+                                <div class="input">
+                                    <mat-form-field class="nn">
+                                        <input matInput type="number" [(ngModel)]="insumos.utilizado" value="0">
+                                    </mat-form-field>
+                                </div>
+                                <h6>{{insumos.unidad}} </h6>
+                            </div>
+                        </div>
+                        <mat-divider></mat-divider>
+                    </div>
+                </mat-card>
+                <div class="">
+                    <button mat-button class="btn" (click)="openDialog()">AGREGAR INSUMOS ADICIONALES</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

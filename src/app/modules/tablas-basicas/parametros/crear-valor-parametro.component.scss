@@ -1,0 +1,63 @@
+.acord1{
+position: relative;
+right: 50px;
+height: 300px;
+width: 200px;
+
+
+
+}
+
+.btn-fin {
+        display: flex;
+        flex-direction: row;
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+    }
+
+
+.ctn {
+    
+        margin-top: 30px;
+    
+    .carta {
+        position: relative;
+        left: 20px;
+        width:  350px; //ancho
+        height: 250px; //altura
+        margin-left: 60px; //margen Dereche
+     .fila1 {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            align-items: center;
+            justify-content: center;
+            .nombre {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                width: 50%;
+                margin-left: -20px;
+                h5 {
+                    color: rgb(67, 71, 77);
+                    font-size: 14px;
+                    line-height: 20px;
+                    font-weight: bold;
+                }
+            }
+            .boton {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                .btn2 {
+                    margin-left: 60px;
+                }
+            }
+        }
+    }
+}

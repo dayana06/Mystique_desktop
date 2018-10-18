@@ -1,0 +1,184 @@
+<mat-accordion class="acordion">
+    <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle="true">
+            
+       
+        <div class="registro">
+                <div class="Titulo">
+                        <h4> Ingrese Datos  De La Promoción(Paso 1){{porNombre}}:</h4><br>
+                        </div><br>
+            
+                <mat-form-field class="example-full-width inputs">
+                <input matInput placeholder="Titulo:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                 <input  matInput placeholder="FechaInicio:" >
+                   <mat-icon class="icono" >date_range</mat-icon>
+                   </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="FechaFin:" >
+                    <mat-icon class="icono">date_range</mat-icon>
+                </mat-form-field>
+                <mat-form-field class="valor inputs">
+       <mat-select id="seleccion"  placeholder="Seleccione el servicio a Promocionar">
+                         <mat-option >
+                         Corte Cabello
+                        </mat-option>
+                        <mat-option >
+                          Secado
+                        </mat-option>
+                        <mat-option >
+                             Planchado
+                        </mat-option>
+                </mat-select>
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Porcentaje de Descuento:" >
+                </mat-form-field>
+                <mat-form-field class="example-full-width inputs">
+                    
+                    <input matInput  placeholder="Imagen:"  >
+                </mat-form-field>
+              
+              <mat-form-field>
+                <textarea matInput placeholder="Descripción:" matTextareaAutosize matAutosizeMinRows="1" matAutosizeMaxRows="2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad distinctio exercitationem officiis sequi bbbbbbbbbbbb</textarea>
+              </mat-form-field>
+              <br>
+              
+                
+       
+        </div>
+    
+  
+      <mat-action-row>
+        <button mat-raised-button color="accent" (click)="nextStep()">Siguiente</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  
+   
+    <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle="true"><br><br><br>
+            
+               
+        <div class="registro">
+                <div class="Titulo">
+                        <h4>Seleccione Datos Generales para la Difusión (Paso 2): </h4>
+                        </div><br>
+                    
+               
+               <div class="title">        
+                 <p>Seleccione Sexo:</p><br>
+                </div> 
+                <mat-checkbox>Hombre</mat-checkbox><br><br>
+                <mat-checkbox>Mujer</mat-checkbox><br><br>
+                <mat-checkbox>Indistinto</mat-checkbox><br><br>
+                <mat-divider></mat-divider><br>
+                <div class="title">
+                <p> Hijos:</p><br>
+                </div>
+                <mat-checkbox>Si</mat-checkbox><br>
+                <mat-checkbox>No</mat-checkbox><br><br>
+                <mat-divider></mat-divider><br>
+                <div class="title">
+                <p>Ingrese un Rango de Edad (Opcional):</p><br>
+                </div>
+                <mat-form-field class="example-full-width inputs">
+                    <input matInput placeholder="Desde:">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width inputs">
+                        <input matInput placeholder="Hasta:">
+                    </mat-form-field>
+
+
+      
+    </div>
+  
+      
+      <mat-action-row>
+        <button mat-button color="accent" (click)="prevStep()">Anterior</button>
+        <button mat-raised-button color="accent" (click)="nextStep()">Siguiente</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+   
+    <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle="true">
+      <div class="confifurar">>
+        <div class="desplegable1">
+        <div class="registro">
+            <div class="Titulo">
+                <h4>Seleccione Características del Perfil del Cliente a Difundir (Paso 3): </h4>
+                </div><br><br>
+            <mat-accordion>
+  
+                <mat-expansion-panel *ngFor="let dato of datos" (opened)="panelOpenState = true">
+                     <mat-expansion-panel-header>
+                         <mat-panel-title class="title">
+                            {{dato.nombreTP}}
+                         </mat-panel-title> 
+                       
+                     </mat-expansion-panel-header>
+                    
+                    <mat-divider></mat-divider>
+                    <div class="garantia">
+                        <br>
+                        
+                        <dl>
+                            <div *ngFor="let Tpa of dato.Parametros">
+                             <div class="letra">
+                              <mat-checkbox >
+            
+                                {{Tpa.nombre}}
+                              </mat-checkbox>
+                            </div>
+                               <br>
+                            </div>
+                        </dl>
+                        
+                    </div>
+                   
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+        </div>
+    
+        <div class="tabla">
+            <mat-accordion isdisabled >
+                
+                <mat-expansion-panel >
+                     <mat-expansion-panel-header >
+                         
+                        <mat-panel-title class="title">
+                          Tipo (Emulción Epicutanea):
+                         </mat-panel-title>
+            
+                     </mat-expansion-panel-header >
+                    <div *ngFor="let Val of valores">
+                       
+                        <mat-checkbox >
+                           {{Val.valor}}
+                           <br>
+                           <br>
+                           <br>
+                           </mat-checkbox>
+                           <div class="letra2">
+                           {{Val.descrip}}
+                           </div>
+                        <mat-divider></mat-divider>
+                      
+                    </div>
+                    
+                </mat-expansion-panel>
+                
+            </mat-accordion>
+            <mat-action-row>
+                <button mat-button color="accent" (click)="prevStep()">Anterior</button>
+                <button mat-raised-button color="accent" > Difundir</button>
+              </mat-action-row>
+            
+        </div>
+        </div>
+        
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+
+
+
+  

@@ -1,0 +1,32 @@
+.example-header {
+    min-height: 64px;
+    padding: 30px 15px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 30%;
+  }
+  
+  .mat-table {
+    overflow: auto;
+    max-height: 500px;
+    margin: 15px;
+  }
+  
+  input[type=text] {
+      width: 160px;height: 30px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      background-color: white;;
+  
+      padding: 12px 30px 12px 12px;
+      -webkit-transition: width 0.4s ease-in-out;
+      transition: width 0.4s ease-in-out;
+  }
+  
+  input[type=text]:focus {
+      width: 30%;
+  }

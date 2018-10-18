@@ -1,0 +1,11 @@
+<div class="inter" [ngClass]="{'login-wrapper': !showInterfaz}">
+    <app-toolbar *ngIf="showInterfaz"></app-toolbar>
+    <div [ngClass]="{'ctn': showInterfaz}">
+        <app-nav-list *ngIf="showInterfaz" [listas]="listas" width="width"></app-nav-list>
+        <div [ngClass]="{'content': showInterfaz}">
+            <div class="wrapper">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

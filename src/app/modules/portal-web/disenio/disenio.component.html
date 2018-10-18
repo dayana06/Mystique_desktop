@@ -1,0 +1,57 @@
+<div class="heading-panel">
+    <!--Controla el contenido que se despliega en cada tab-->
+    <mat-tab-group #grupoTabs>
+        <!--(click)="verificarTab(grupoTabs)" (keydown)="verificarTab(grupoTabs)"-->
+        <mat-tab label="Imagenes">
+            <!--++++++-->
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h4 style="opacity: 0.5;">Sube las imagenes de tu logo y favicon</h4>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==0">-->
+                <mat-card style="padding: 50px 120px;">
+                    <app-imagenes></app-imagenes>
+                </mat-card>
+                <!--</div>-->
+            </div>
+            <!--++++++-->
+        </mat-tab>
+
+        <mat-tab label="Colores">
+            <!--++++++-->
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h4 style="opacity: 0.5;">Configura los colores de tu marca</h4>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==1">-->
+                <mat-card style="padding: 50px 120px;">
+                    <app-colores></app-colores>
+                </mat-card>
+                <!--</div>-->
+            </div>
+            <!--++++++-->
+        </mat-tab>
+
+        <mat-tab label="Tipografia">
+            <!--++++++-->
+            <div style="padding: 30px 30px 30px 60px; ">
+                <h4 style="opacity: 0.5;">Configura la tipografia que se va a mostrar en tu portal web</h4>
+                <br>
+                <!--<div *ngIf="grupoTabs.selectedIndex==2">-->
+                <mat-card style="padding: 50px 120px;">
+                    <app-tipografia></app-tipografia>
+                </mat-card>
+                <!--</div>-->
+            </div>
+            <!--++++++-->
+        </mat-tab>
+    </mat-tab-group>
+
+    <!--Posiciona los botones a la parte superior derecha de la pantalla-->
+    <div class="button-row">
+        <button mat-raised-button>
+          <mat-icon>save</mat-icon> Guardar
+        </button>
+        <button mat-raised-button>
+          <mat-icon>visibility</mat-icon> Previsualizar
+        </button>
+    </div>
+</div>

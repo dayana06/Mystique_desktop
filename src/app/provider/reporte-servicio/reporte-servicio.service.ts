@@ -1,0 +1,24 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+const API_URL="http://localhost:3000/api/"
+@Injectable()
+export class ReporteServicioService {
+  reporteSer:any
+  url_reporteSer: String = 'reporte_servicio?';
+  url_reporteSerR: String = 'reporte_servicio_realizado/';
+    
+  url:string='vista_reclamos_realizados';
+  constructor(public http: HttpClient) { }
+  
+  getReporteSer(url) {
+    console.log(url);
+    return this.http.get(API_URL + this.url_reporteSer + url);
+   }
+
+
+   getReporteSerR(url) {
+    console.log(url);
+    return this.http.get(API_URL + this.url_reporteSerR + url);
+   }
+
+}

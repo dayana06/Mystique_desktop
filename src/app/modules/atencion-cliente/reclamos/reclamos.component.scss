@@ -1,0 +1,127 @@
+.reclamo {
+    margin: 30px 60px 0px 60px;
+    display: flex;
+    flex-direction: column;
+    .search {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        margin-left: 150px;
+        .input-search {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            height: 50px;
+            width: 400px;
+            //  margin-top: 30px;
+            margin-left: -220px;
+            margin-right: 20px;
+            padding: 0;
+            border-radius: 2px;
+            .inputs {
+                //  margin-left: 5px;
+                width: 300px;
+                font-size: 13px;
+            }
+            mat-icon {
+                margin-left: 10px;
+                color: #A5ADBA;
+            }
+        }
+        .select {
+            background-color: white;
+            height: 50px;
+            //  width: 200px;
+            margin-right: 20px;
+            padding: 0;
+            border-radius: 2px;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            display: flex;
+            flex-direction: row;
+            .desde {
+                font-size: 14px;
+                color: #6C798F;
+                font-weight: 500;
+                line-height: 19px;
+                width: 100px;
+                margin-left: 10px;
+                //margin-bottom: -20px;
+                //margin-right: 40px;
+            }
+        }
+        .select1 {
+            background-color: white;
+            height: 50px;
+            // margin-left: 20px;
+            padding: 0;
+            border-radius: 2px;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            display: flex;
+            flex-direction: row;
+            .hasta {
+                font-size: 14px;
+                color: #6C798F;
+                font-weight: 500;
+                line-height: 19px;
+                width: 100px;
+                margin-left: 10px;
+                //margin-bottom: -20px;
+                //margin-right: 40px;
+            }
+        }
+    }
+    .col {
+        display: flex;
+        flex-direction: row;
+        div {
+            width: 310px;
+            margin-bottom: 20px;
+            h4 {
+                font-size: 14px;
+                color: #6C798F;
+                font-weight: bold;
+                line-height: 19px;
+            }
+        }
+    }
+    .panel {
+        h3 {
+            font-size: 16px;
+            color: rgb(99, 101, 105);
+            font-weight: bold;
+            line-height: 19px;
+        }
+        .garantia {
+            .gar {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 0px;
+                .venc {
+                    margin-left: 5px;
+                    font-weight: bold;
+                    color: rgb(99, 101, 105);
+                }
+            }
+        }
+        .btn {
+            margin-top: 20px;
+        }
+    }
+    dl dd {
+        margin: 0 0 0 15px;
+    }
+}
+
+mat-panel-title {
+    width: 120px;
+}
+
+.order {
+    width: 100px;
+}

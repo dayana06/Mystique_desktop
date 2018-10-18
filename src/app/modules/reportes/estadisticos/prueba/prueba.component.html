@@ -1,0 +1,18 @@
+<h1 *ngIf='filtroSelec == "semana"'>Citas prestadas esta semana</h1>
+<h1 *ngIf='filtroSelec == "mes"'>Citas prestadas este mes</h1>
+<div class="select">
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="filtroSelec" placeholder="Frecuencia" class="letra">
+            <mat-option *ngFor="let filtro of filtro" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+<div *ngIf='filtroSelec == "semana"'>
+    <canvas appGraficas tipo="line" [datos]="misDatosSem"></canvas>
+</div>
+
+<div *ngIf='filtroSelec == "mes"'>
+    <canvas appGraficas tipo="line" [datos]="misDatosMes"></canvas>
+</div>

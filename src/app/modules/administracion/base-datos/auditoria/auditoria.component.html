@@ -1,0 +1,63 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" class="busqueda" (keyup)="applyFilter($event.target.value)" placeholder="Buscar por dato específico">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+</div>
+<div class="auditoria" mat-grid-list cols="3" rowHeight="60px">
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table #table [dataSource]="dataSource">
+
+            <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- columna de tabla -->
+            <ng-container matColumnDef="tabla">
+                <mat-header-cell *matHeaderCellDef> Tabla </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.nombre_tabla}} </mat-cell>
+            </ng-container>
+
+            
+            <!-- columna de usuario -->
+            <ng-container matColumnDef="usuario">
+                <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.usuario}} </mat-cell>
+            </ng-container>
+
+           
+            <!-- columna de operacion -->
+            <ng-container matColumnDef="operacion">
+                <mat-header-cell *matHeaderCellDef> Operación </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.operacion}} </mat-cell>
+            </ng-container>
+
+            
+            <!-- columna de valor_anterior -->
+            <ng-container matColumnDef="valor_anterior">
+                <mat-header-cell *matHeaderCellDef> Valor anterior </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.valor_viejo}} </mat-cell>
+            </ng-container>
+
+           
+            <!-- columna del valor_actual -->
+            <ng-container matColumnDef="valor_actual">
+                <mat-header-cell *matHeaderCellDef> Valor actual </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.valor_nuevo}} </mat-cell>
+            </ng-container>
+
+
+            <!-- columna de fecha -->
+            <ng-container matColumnDef="fecha">
+                <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.fecha_creacion | date:'dd-MM-yyyy'}} </mat-cell>
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+</div>

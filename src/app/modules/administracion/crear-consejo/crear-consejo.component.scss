@@ -1,0 +1,15 @@
+.example-container {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.example-container>* {
+    width: 700px;
+}
+
+.texto {
+    margin-left: 40px;
+    width: 200px;
+}

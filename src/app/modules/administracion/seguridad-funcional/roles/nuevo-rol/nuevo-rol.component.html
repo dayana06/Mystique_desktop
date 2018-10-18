@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>{{(accion=="crear")?"Nuevo":"Editar"}} rol</h2>
+
+<mat-dialog-content>
+
+    <mat-form-field class="ancho100porc">
+        <input matInput [(ngModel)]="nombre" placeholder="Nombre del rol">
+    </mat-form-field>
+
+    <label>Funciones para este <b><i>rol</i></b></label>
+    <div *ngFor="let funcion of funciones">
+        <div *ngIf="funcion.id_funcion==null; else elseBlock">
+                <br>
+                <mat-checkbox (change)="activarOdesactivar(funcion)" [checked]="funcion.activa" 
+                    [disabled]="habilitarOdeshabilitar(funcion)" style="font-weight: bold;">{{funcion.nombre}}</mat-checkbox>
+        </div>
+        <ng-template #elseBlock>
+                <mat-checkbox (change)="activarOdesactivar(funcion)" [checked]="funcion.activa"
+                    [disabled]="habilitarOdeshabilitar(funcion)" style="margin-left: 20px;">{{funcion.nombre}}</mat-checkbox>
+        </ng-template>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="accent" (click)="closeDialog()">Guardar</button>
+    <button mat-button mat-dialog-close (click)="onNoClick()" class="btn-white ">Cancelar</button>
+
+</mat-dialog-actions>
+
+
+
+
+<!--EXAMPLE OF THE MODAL DIALOG CONTENT*************************************************
+    <h2 mat-dialog-title>Hi {{name}}</h2>
+
+<mat-dialog-content>
+  
+    <mat-form-field>
+        <input matInput [(ngModel)]="animal" placeholder="What's your favorite animal?">
+    </mat-form-field>
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onNoClick()">No Thanks!</button>
+    <button mat-button mat-dialog-close (click)="closeDialog()">OK</button>
+</mat-dialog-actions>
+**************************************************************************************-->

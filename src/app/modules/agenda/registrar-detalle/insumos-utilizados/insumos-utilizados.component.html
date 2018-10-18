@@ -1,0 +1,74 @@
+<mat-card>
+    <div class="title">
+        <h5>Insumos de Aplicación de tinte</h5>
+    </div>
+
+    <div class="insumos" *ngFor="let insumos1 of insumos1">
+        <div class="left">
+            <h6>{{insumos1.nombre}} </h6>
+        </div>
+        <div class="right">
+            <div class="input">
+                <mat-form-field class="nn">
+                    <input matInput type="number" value="3">
+                </mat-form-field>
+            </div>
+            <h6>{{insumos1.unidad}} </h6>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="title">
+        <h5>Insumos del Secado de cabello</h5>
+    </div>
+    <div class="insumos" *ngFor="let insumos1 of insumos2">
+        <div class="left">
+            <h6>{{insumos1.nombre2}} </h6>
+        </div>
+        <div class="right">
+            <div class="input">
+                <mat-form-field class="nn">
+                    <input matInput type="number" value="3">
+                </mat-form-field>
+            </div>
+            <h6>{{insumos1.unidad2}} </h6>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="title">
+        <h5>Insumos del Maquillaje de día</h5>
+    </div>
+    <div class="insumos" *ngFor="let insumos1 of insumos3">
+        <div class="left">
+            <h6>{{insumos1.nombre3}} </h6>
+        </div>
+        <div class="right">
+            <div class="input">
+                <mat-form-field class="nn">
+                    <input matInput type="number" value="3">
+                </mat-form-field>
+            </div>
+            <h6>{{insumos1.unidad3}} </h6>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="title">
+        <h5>Otros</h5>
+    </div>
+    <div class="insumos" *ngFor="let insumos1 of otros1">
+        <div class="left">
+            <h6>{{insumos1.nombre4}} </h6>
+        </div>
+        <div class="right">
+            <div class="input">
+                <mat-form-field class="nn">
+                    <input matInput type="number" value="3">
+                </mat-form-field>
+            </div>
+            <h6>{{insumos1.unidad4}} </h6>
+        </div>
+    </div>
+
+</mat-card>
+<div class="">
+    <button mat-button class="btn" (click)="openDialog()">AGREGAR INSUMOS ADICIONALES</button>
+</div>

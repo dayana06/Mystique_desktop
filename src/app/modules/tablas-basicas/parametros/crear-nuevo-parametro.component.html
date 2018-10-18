@@ -1,0 +1,14 @@
+<div class="ctn">
+    <h3 class="title">
+        Nueva Característica Para el Perfil:
+    </h3>
+    <!--  <texto>!-->
+    <mat-form-field class="example-full-width inputs">
+        <textarea matInput placeholder="Nombre" [(ngModel)]="nombre" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <!--  <boton>!-->
+    <div class="btn-fin">
+        <button mat-raised-button color="accent" class="c-white btn" (click)="crearParametro()">Guardar</button>
+        <button mat-raised-button color="accent" class="btn-white btn" (click)="notOK()">Cancelar</button>
+    </div>
+</div>

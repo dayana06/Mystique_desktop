@@ -1,0 +1,48 @@
+<div>
+    <div class="boton">
+        <span matTooltip="Listado"><button mat-raised-button routerLink="../"><mat-icon>keyboard_backspace</mat-icon> Volver</button></span>
+    </div>
+    <mat-card class="mat-card-container">
+      <h4>Informacion del cliente</h4><br/>
+      <!--<img mat-card-md-image src="/assets/img/perfil.jpg" class="img-radius">-->
+      <div class="img-radius"><mat-icon [style.color]="(cliente.cliente.sexo=='f')?'#fd0087':'#0065ff'">account_circle</mat-icon></div>
+      <!--<div class="this-matcard-div">
+          <button mat-raised-button>
+              <mat-icon>cloud_upload</mat-icon> REEMPLAZAR
+          </button>
+          <button mat-button>
+              QUITAR IMAGEN
+          </button>
+      </div>-->
+    <mat-card-content>
+      <div class="this-matcardcontent-div">
+        <mat-form-field>
+          <input matInput placeholder="Nombre" [value]="cliente.cliente.nombre">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Apellido" [value]="cliente.cliente.apellido">
+        </mat-form-field>
+      </div>
+      
+      <mat-form-field class="mat-f-f">
+        <input type="email" matInput placeholder="Correo" [value]="cliente.usuario.correo">
+      </mat-form-field>
+      
+      <div class="div-radio-button">
+      <label><sup>Sexo</sup></label>
+      <mat-radio-group class="div-radio-group" [value]="cliente.cliente.sexo">
+        <mat-radio-button (click)="cliente.cliente.sexo='f'" value="f" class="div-r-button">Mujer</mat-radio-button>
+        <mat-radio-button (click)="cliente.cliente.sexo='m'" value="m" class="div-r-button">Hombre</mat-radio-button>
+      </mat-radio-group>
+      </div><br>
+      
+      <mat-form-field class="mat-f-f">
+        <input type="date" matInput placeholder="Fecha de nacimiento" [value]="cliente.cliente.fecha_nacimiento">
+      </mat-form-field>
+      
+      <mat-form-field class="mat-f-f">
+        <input type="tel" matInput placeholder="Telefono" [value]="cliente.cliente.telefono">
+      </mat-form-field>
+    </mat-card-content>
+      </mat-card>
+    </div>

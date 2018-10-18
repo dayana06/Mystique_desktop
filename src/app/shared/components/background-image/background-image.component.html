@@ -1,0 +1,7 @@
+<div class="ctn">
+    <div class="image" *ngIf="imageUrl" [ngStyle]="{backgroundImage: 'url('+imageUrl+')', height: iHeight}">
+    </div>
+    <div class="content" [style.backgroundColor]="bgColor">
+        <ng-content></ng-content>
+    </div>
+</div>

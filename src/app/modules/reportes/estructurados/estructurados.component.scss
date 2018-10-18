@@ -1,0 +1,31 @@
+.heading-panel {
+    background-color: #fafafa;
+    height: 65px;
+    padding: 16px 25px 0px 50px;
+    position: relative;
+}
+
+.search-entidad {
+    margin-left: 30px;
+    margin-top: 15px;
+    .selectEntidad {
+        width: 100px;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: row;
+        .valor {
+            margin-right: 15px;
+            .letra {
+                font-size: 14px;
+                color: #6C798F;
+            }
+        }
+    }
+}
+
+h1 {
+    font-size: 24px;
+    color: #6C798F;
+    margin-top: 20px;
+    margin-left: 30px;
+}

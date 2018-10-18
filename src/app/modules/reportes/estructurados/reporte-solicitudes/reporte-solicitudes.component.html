@@ -1,0 +1,121 @@
+<div class="selectFilter">
+    <!--<mat-form-field class="valor">
+        <mat-select placeholder="Empleados" [(ngModel)]="empleadosSeleccionados" multiple>
+            <mat-select-trigger>
+                {{empleadosSeleccionados ? empleadosSeleccionados[0] : ''}}
+                <span *ngIf="empleadosSeleccionados.length > 1">
+                    (+{{empleadosSeleccionados.length - 1}} otros)
+                </span>
+            </mat-select-trigger>
+            <mat-option color="accent" *ngFor="let empleado of empleados" [value]="empleado">{{empleado}}</mat-option>
+        </mat-select>
+    </mat-form-field>-->
+    <mat-form-field class="fecha valor">
+        <input matInput [matDatepicker]="picker" [(ngModel)]="fechaini" (ngModelChange)="crearUrl()" placeholder="Fecha de inicio de la búsqueda">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="fecha valor">
+        <input matInput [matDatepicker]="pickerEnd" [(ngModel)]="fechafin" (ngModelChange)="crearUrl()" placeholder="Fecha de fin de la búsqueda">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd (change)="validateDate()"></mat-datepicker>
+        <span *ngIf="fecha">La fecha de fin debe ser mayor que la de inicio</span>
+    </mat-form-field>
+
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="idServ" (change)="crearUrl()" placeholder="Servicio" class="letra">
+            <mat-option *ngFor="let filtroTipo of filtroServicio" [value]="filtroTipo.id">
+                {{ filtroTipo.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="tipoReS" (change)="crearUrl()" placeholder="Tipo de respuesta solicitud" class="letra">
+            <mat-option *ngFor="let filtroTipo of respSolic" [value]="filtroTipo.id">
+                {{ filtroTipo.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="valor">
+        <mat-select [(ngModel)]="tipoReP" (change)="crearUrl()" placeholder="Tipo de respuesta presupuesto" class="letra">
+            <mat-option *ngFor="let filtroTipo of respPresup" [value]="filtroTipo.id">
+                {{ filtroTipo.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div class="boton">
+        <button mat-raised-button (click)="getPDF()"> Importar PDF</button>
+    </div>
+
+</div>
+
+
+<div class="tabla" id="content" #content>
+    <h4>Reporte de solicitudes</h4>
+    <mat-table #table [dataSource]="dataSource" matSort>
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="cliente">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Cliente</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.nombre}} {{element.apellido}} </mat-cell>
+        </ng-container>
+        <!-- Telefono column -->
+        <ng-container matColumnDef="fecha">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Fecha</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.fecha_creacion}} </mat-cell>
+        </ng-container>
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="servicio">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Servicios</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element">
+                <div *ngFor="let serv of element.servicios_solicitados"> {{serv.tipo_servicio}} {{serv.nombre_servicio}}, </div><br>
+            </mat-cell>
+        </ng-container>
+
+        <!-- Telefono column -->
+        <ng-container matColumnDef="empleado">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Empleados solicitados</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.empleado}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="tipoRS">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Tipo de respuesta Solicitud</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.respuesta_solicitud.nombre}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="respS">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Respuesta de Solicitud</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.respuesta_solicitud.descripcion}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="tipoRP">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Tipo de respuesta presupuesto</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.presupuesto.nombre}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="respP">
+            <mat-header-cell style="padding:5px;" *matHeaderCellDef mat-sort-header>
+                <h3>Respuesta presupuesto</h3>
+            </mat-header-cell>
+            <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.presupuesto.descripcion}} </mat-cell>
+        </ng-container>
+
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+</div>

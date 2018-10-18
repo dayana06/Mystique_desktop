@@ -1,0 +1,75 @@
+<div class="ctn">
+    <div class="titulo">
+        <h4>Tu negocio en el tiempo</h4>
+    </div>
+    <div class="fila1">
+        <mat-card class="grafico">
+            <mat-list>
+                <mat-card-content>
+                    <app-prueba class="rep1"></app-prueba>
+
+                </mat-card-content>
+                <mat-divider></mat-divider>
+                <div class="end">
+                    <button mat-button routerLink="/reportesEstadísticos" class="sec">VER REPORTE</button>
+                </div>
+            </mat-list>
+        </mat-card>
+        <mat-card class="lista">
+            <mat-card-header>
+                <div class="title">
+                    <h6>Clientes citados para el día de hoy</h6>
+                </div>
+                <div class="cant">
+                    <h1>{{orden.length}}</h1>
+                </div>
+                <div class="subtitle">
+                    <h6>Servicios programados </h6>
+                </div>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="for" *ngFor="let servicio of orden.servicios_solicitados">
+                    <div class="name">
+                        <h5>{{servicio.tipo_servicio}} {{servicio.nombre_servicio}}</h5>
+                    </div>
+                    <div class="hora">
+                        <h5> {{orden.citas[0].hora_inicio}}</h5>
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                </mat-list>
+                <button mat-button class="btn" routerLink="/citas">IR A AGENDA</button>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+    <div class="fila2">
+        <mat-card class="card1">
+            <mat-card-content>
+                <app-reporte-promociones></app-reporte-promociones>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                </mat-list>
+
+                <button mat-button routerLink="/reportesEstadísticos" class="btn">VER REPORTE</button>
+            </mat-card-footer>
+        </mat-card>
+        <mat-card class="card2">
+
+            <mat-card-content>
+                <app-suscripcion></app-suscripcion>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                </mat-list>
+
+                <button mat-button routerLink="/reportesEstadísticos" class="btn">VER REPORTE</button>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+</div>

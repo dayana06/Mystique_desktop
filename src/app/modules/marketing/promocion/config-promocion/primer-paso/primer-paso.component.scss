@@ -1,0 +1,31 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    .ctn {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: center;
+        .col1 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            mat-form-field {
+                margin-left: 170px;
+            }
+            //       margin-right: 20px;
+        }
+        .col2 {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+        .inputs {
+            width: 200px;
+            margin-top: 10px;
+        }
+    }
+    .div-btn {
+        margin-left: 170px;
+    }
+}

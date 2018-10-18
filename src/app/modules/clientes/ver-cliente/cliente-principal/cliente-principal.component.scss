@@ -1,0 +1,76 @@
+div {
+
+    .boton {
+        margin-top: 25px;
+        margin-left: 70px;
+
+    }
+    
+    .mat-card-container {
+        margin: auto;
+        max-width: 400px;
+        
+        margin-top: 30px;
+
+        .img-radius {
+            text-align: center;
+            mat-icon{
+                opacity: 0.75;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: 150px;
+            }
+            
+           /*height: 100px;
+            width: 100px;
+           border-radius: 50%;*/
+        }
+
+        /*.this-matcard-div{
+            max-width: 60px; 
+            
+            display: flex;
+            flex-direction: row;
+
+            button{
+                
+                font-size: xx-small;
+            }
+        }*/
+        
+
+        .this-matcardcontent-div{
+            display: flex;
+
+            mat-form-field{
+                width:50%; padding:3px; margin-top: 15px;
+            }
+        }
+
+        * {
+            width: 100%;
+          }
+
+        .mat-f-f{
+            padding:3px; margin-top: 15px;
+        }
+
+        .div-radio-button{
+            margin-top: 15px;
+
+            sup{
+                color: gray; font-size: 11px; padding-left: 3px;
+            }
+
+            .div-radio-group {
+                display: inline-flex;
+                flex-direction: column;
+            
+                .div-r-button {
+                    margin: 5px;
+                  }
+              }
+        }
+      }
+}
+

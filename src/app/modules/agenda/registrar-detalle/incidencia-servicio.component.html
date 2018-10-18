@@ -1,0 +1,41 @@
+<div class="ctn">
+    <!--  <mat-card class="card">!-->
+    <h3 class="title">
+        Registrar incidencia de un servicio
+    </h3>
+    <div class="select">
+        <mat-form-field class="valor inputs">
+            <mat-select placeholder="Seleccione el servicio que tuvo la incidencia" [(ngModel)]="datosEnviar.id_servicio">
+                <mat-option *ngFor="let filtro of servAux" [value]="filtro.id_servicio_solicitado">
+                    {{ filtro.tipo_servicio }} {{ filtro.nombre_servicio }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="valor inputs">
+            <mat-select placeholder="Seleccione el motivo de incidencia" [(ngModel)]="razonSelec" (change)=" getTipoIncidencia()">
+                <mat-option *ngFor="let filtro of razon" [value]="filtro.id">
+                    {{ filtro.nombre }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="select">
+            <mat-form-field class="valor inputs">
+                <mat-select placeholder="Seleccione el tipo de incidencia" [(ngModel)]="datosEnviar.id_tipo_incidencia">
+                    <mat-option *ngFor="let filtro of incidenciaAux" [value]="filtro.id">
+                        {{ filtro.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <mat-form-field class="example-full-width inputs">
+        <textarea matInput placeholder="Detalle de la incidencia" [(ngModel)]="datosEnviar.descripcion" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <div class="btn-fin">
+        <button mat-raised-button color="accent" (click)="mostrar()" class="c-white btn">Registrar</button>
+        <button mat-raised-button color="accent" (click)="onNoClick()" class="btn-white btn">Cancelar</button>
+    </div>
+
+    <!--</mat-card>!-->
+</div>

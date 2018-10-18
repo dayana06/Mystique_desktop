@@ -1,0 +1,21 @@
+<div class="ctn">
+    <h3 class="title">
+        Agregar insumos adicionales
+    </h3>
+    <mat-form-field class="valor inputs">
+        <mat-select name="resp" [(ngModel)]="valor" placeholder="Insumo utilizado">
+            <mat-option name="pp" *ngFor="let filtro of filtro" [value]="filtro.value">
+                {{ filtro.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width inputs">
+        <input matInput type="number">
+        <p>mg</p>
+    </mat-form-field>
+    <div class="btn-fin">
+        <button mat-raised-button color="accent" class="c-white btn">Registrar</button>
+        <button mat-raised-button color="accent" class="btn-white btn">Cancelar</button>
+    </div>
+</div>

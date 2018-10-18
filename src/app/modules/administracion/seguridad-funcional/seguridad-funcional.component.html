@@ -1,0 +1,89 @@
+<div class="example-header">
+    <form>
+        <div style="position:relative;">
+            <input type="text" (keyup)="applyFilter($event.target.value)" placeholder="Buscar por usuario">
+            <mat-icon style="position:absolute; margin-left:-30px;top:4px;opacity:0.5;" matSuffix>search</mat-icon>
+        </div>
+    </form>
+
+    <mat-form-field style="width: 200px; position: absolute;top:15px;right: 300px;">
+        <mat-select placeholder="Selecciona por usuario" value="0">
+            <mat-option *ngFor="let rol of roles" [value]="rol.id">
+                {{ rol.nombre }}
+            </mat-option>
+            <mat-option value="0">
+                Todos los usuarios
+            </mat-option>
+            <mat-option value="-1">
+                Por Asignar
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="button-row">
+        <button mat-raised-button routerLink="roles" color="accent">
+      <mat-icon>supervisor_account</mat-icon> Roles
+    </button>
+    </div>
+</div>
+
+<mat-table #table [dataSource]="dataSource">
+
+    <!-- Usuario Column -->
+    <ng-container matColumnDef="usuario">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Usuario</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.usuario}} </mat-cell>
+    </ng-container>
+
+    <!-- Correo column -->
+    <ng-container matColumnDef="correo">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Correo</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.correo}} </mat-cell>
+    </ng-container>
+
+    <!-- Telefono Column -->
+    <ng-container matColumnDef="telefono">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Teléfono</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.telefono}} </mat-cell>
+    </ng-container>
+
+    <!-- Rol Column -->
+    <ng-container matColumnDef="rol">
+        <mat-header-cell style="padding:5px;" *matHeaderCellDef>
+            <h3>Rol</h3>
+        </mat-header-cell>
+        <mat-cell style="padding:5px;" *matCellDef="let element"> {{element.rol}} </mat-cell>
+    </ng-container>
+
+    <!-- menu Column -->
+    <ng-container matColumnDef="menu">
+        <mat-header-cell *matHeaderCellDef>
+
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" style="display:flex; justify-content:flex-end;">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+            <mat-menu #menu="matMenu">
+                <!--<button mat-menu-item>
+          <mat-icon>edit</mat-icon> Editar usuario
+        </button>-->
+                <button mat-menu-item *ngIf="element.af" (click)="asignarFuncionesAUsuario(element)">
+          <mat-icon>list</mat-icon> Asignar funciones<!--view_list-->
+        </button>
+                <button mat-menu-item *ngIf="element.iu" (click)="usu_selected=element;mostrarMensajeDeConfirmacion('¿Seguro que desea eliminar este usuario?')">
+          <mat-icon>delete</mat-icon> Eliminar usuario<!--view_list-->
+        </button>
+            </mat-menu>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

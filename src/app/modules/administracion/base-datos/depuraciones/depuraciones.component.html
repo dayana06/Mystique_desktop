@@ -1,0 +1,40 @@
+<mat-form-field>
+    <input #fcha1 id="fecha1" matInput [matDatepickerFilter]="miFiltro" [matDatepicker]="picker" placeholder="Desde la fecha">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field> &nbsp;&nbsp;&nbsp;
+<mat-form-field>
+    <input #fcha2 id="fecha2" matInput [matDatepickerFilter]="miFiltro" [matDatepicker]="pickerEnd" placeholder="Hasta la fecha">
+    <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+    <mat-datepicker #pickerEnd></mat-datepicker>
+</mat-form-field>
+<br>
+
+<div class="tabla">
+    <mat-accordion isdisabled>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header enabled>
+
+                <mat-panel-title class="title">
+                    <h3>Registros </h3>
+                </mat-panel-title>
+
+            </mat-expansion-panel-header>
+
+            <div *ngFor="let val of valores">
+                <br>
+                <br>
+                <mat-checkbox [checked]="val.stat" (change)="cambiar(val)">
+                    {{val.valor}}
+                </mat-checkbox>
+                <br>
+                <mat-divider></mat-divider>
+
+            </div>
+
+            <br>
+            <button mat-raised-button color="accent" class="c-white btn" (click)="fech1=fcha1.value;fech2=fcha2.value;verificar()">Depurar</button>
+        </mat-expansion-panel>
+
+    </mat-accordion>

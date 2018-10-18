@@ -1,0 +1,70 @@
+.btnObje {
+    position: relative;
+    left: 360px;
+    padding-bottom: 20px;
+}
+
+.textarea {
+    width: 560px;
+    height: 50px;
+}
+
+.btnSubir {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19px;
+    margin-top: 15px;
+}
+
+.icono {
+    position: relative;
+    left: 350px;
+}
+
+.c-whitebtn1 {
+    color: #FD0087;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19px;
+    margin-top: 15px;
+}
+
+.titulo {
+    font-size: 16px;
+    font-weight: bold;
+    color: #6C798F;
+    line-height: 30px;
+}
+
+.ctn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 30px;
+    .registro {
+        margin-left: 100px;
+        margin-right: 25px;
+        left: 50px;
+        .detalle {
+            margin-top: 30px;
+            margin-left: 60px;
+            margin-right: 100px;
+            width: 600px;
+            height: 100%;
+            .inputs {
+                margin: 5px 0px;
+                width: 470px;
+            }
+            input:disabled {
+                color: black;
+            }
+        }
+        .btn {
+            color: #FD0087;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 19px;
+            margin-top: 15px;
+        }
+    }
+}

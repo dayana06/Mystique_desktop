@@ -1,0 +1,22 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title class="title">
+                Tipo (Emulsión Epicutanea):
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div *ngFor="let Val of valores">
+            <br> {{Val.valor}}
+            <br>
+            <br>
+            <div class="letra2">
+                {{Val.descrip}}
+            </div>
+            <mat-divider></mat-divider>
+        </div>
+        <br>
+        <div class="boton">
+            <button mat-raised-button color="accent" (click)="openDialogValorParametro()" class="btn">Nuevo Valor Parámetro</button>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

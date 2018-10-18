@@ -1,0 +1,55 @@
+<div class="ctn">
+    <!--<mat-card class="cancelar">!-->
+    <h4>Responder solicitud</h4>
+    <mat-form-field class="example-full-width inputs">
+        <input matInput placeholder="Cliente" [value]="cliente" disabled>
+    </mat-form-field>
+    <mat-form-field class="example-full-width inputs">
+        <input matInput placeholder="Servicios" disabled class="servicios">
+        <span *ngFor="let serv of solicitud.servicios_solicitados">{{serv.tipo_servicio}} {{serv.nombre_servicio}}, </span>
+
+    </mat-form-field>
+    <mat-form-field class="example-full-width inputs" *ngIf="solicitud.empleado != null">
+        <input matInput placeholder="Empleado a cargo del servicio de peluquería" disabled>
+        <span class="norm" *ngFor="let empleado of solicitud.empleadoBusqueda"> {{empleado.nombre}} {{empleado.apellido}}, </span>
+    </mat-form-field>
+    <mat-form-field class="valor">
+        <mat-select name="resp" [(ngModel)]="enviarResp.id_tipo_respuesta_solicitud" placeholder="Tipo de respuesta de la solicitud">
+            <mat-option name="pp" *ngFor="let filtro of tipoRespuestas" [value]="filtro.id">
+                {{ filtro.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width inputs">
+        <textarea matInput placeholder="Dar respuesta al cliente" [(ngModel)]="enviarResp.descripcion" matTextareaAutosize matAutosizeMinRows="2" matAutosizeMaxRows="5"></textarea>
+    </mat-form-field>
+    <div class="empl" *ngIf="enviarResp.id_tipo_respuesta_solicitud">
+        <!-- se muestra para seleccionar empleado de peluq sólo si el campo es nulo-->
+        <mat-form-field class="valor" *ngIf="(solicitud.empleado.length == 0 || catPelu) && servP">
+            <mat-select name="resp" [(ngModel)]="empleadoP" placeholder="Empleado a cargo del servicio de peluquería">
+                <mat-option name="pp" *ngFor="let filtro of empleadosPeluq" [value]="filtro.id_empleado">
+                    {{ filtro.nombre }} {{ filtro.apellido }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!--
+    <mat-form-field class="example-full-width inputs">
+        <input matInput placeholder="Servicios de maquillaje" value="Maquillaje completo" disabled>
+    </mat-form-field>
+    <mat-form-field class="example-full-width inputs" *ngIf="solicitud.empleado != null">
+        <input matInput placeholder="Empleado a cargo del servicio de maquillaje" [value]="empleadoM" disabled>
+    </mat-form-field>-->
+        <!-- se muestra para seleccionar empleado de peluq sólo si el campo es nulo-->
+        <mat-form-field class="valor" *ngIf="(solicitud.empleado.length == 0 || catMaqui) && servM">
+            <mat-select name="resp" [(ngModel)]="empleadoM" placeholder="Empleado a cargo del servicio de maquillaje">
+                <mat-option name="pp" *ngFor="let fil of empleadosMaquil" [value]="fil.id_empleado">
+                    {{ fil.nombre }} {{ fil.apellido }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+    </div>
+    <button mat-raised-button color="accent" (click)="responder()" class="c-white btn">Dar respuesta</button>
+    <!-- </mat-card>!-->
+</div>

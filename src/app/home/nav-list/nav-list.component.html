@@ -1,0 +1,35 @@
+<div class="ctn mat-elevation-z1" *ngIf="listas" [style.width]="width">
+    <mat-list>
+        <ul>
+            <li *ngFor="let lista of listas">
+                <div class="wrapper" *ngIf="lista.type == 'alone'">
+                    <mat-list-item matRipple [routerLink]="lista.link" class="btn-menu scale" routerLinkActive="activeroute">
+                        <mat-icon mat-list-icon *ngIf="lista.icon">{{lista.iconName}}</mat-icon>
+                        <p mat-line> {{lista.label}} </p>
+                    </mat-list-item>
+                </div>
+                <div class="wrapper" *ngIf="lista.type =='group'">
+                    <mat-expansion-panel class="mat-expansion-demo-width" #myPanel>
+                        <mat-expansion-panel-header class="scale">
+                            <div class="list2">
+                                <mat-icon *ngIf="lista.icon" [routerLink]="lista.link" routerLinkActive="activeroute" mat-list-icon>{{lista.iconName}}</mat-icon>
+                                <div class="list-text">
+                                    <p> {{lista.label}} </p>
+                                </div>
+                            </div>
+                        </mat-expansion-panel-header>
+                        <div *ngFor="let sublista of lista.group" [routerLink]="sublista.link" routerLinkActive="activeroute" matRipple class="list paddin-x24 scale">
+                            <mat-icon mat-list-icon *ngIf="sublista.icon">{{sublista.iconName}}</mat-icon>
+                            <div class="list-text1" *ngIf="sublista.icon">
+                                <p>{{sublista.label}}</p>
+                            </div>
+                            <div class="list-text2">
+                                <p>{{sublista.label}}</p>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </li>
+        </ul>
+    </mat-list>
+</div>

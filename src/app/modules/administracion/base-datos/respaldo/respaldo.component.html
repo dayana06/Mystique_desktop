@@ -1,0 +1,23 @@
+<div class="registro">
+    <mat-card class="detalle">
+
+        <div>
+            <mat-form-field class="search-entidad">
+                <mat-select placeholder="Registros" [(ngModel)]="registrosSeleccionados" multiple>
+
+                    {{registrosSeleccionados ? registrosSeleccionados[0] : ''}}
+                    <span *ngIf="registrosSeleccionados.length > 1">
+                        (+{{registrosSeleccionados.length - 1}} otros)
+                    </span>
+
+                    <mat-option color="accent" *ngFor="let registros of registro1">{{registros}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="botonA">
+            <button mat-raised-button color="accent" (click)="respaldar()">Respaldar</button>
+        </div>
+    </mat-card>
+</div>
+
+<a id="descargarbackup" style="display: none;" download="respaldo.backup" (click)="$event.currentTarget.href='respaldo.backup'"></a>

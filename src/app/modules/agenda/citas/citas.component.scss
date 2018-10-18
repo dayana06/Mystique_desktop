@@ -1,0 +1,269 @@
+.ctn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .example-header {
+        min-height: 64px;
+        padding: 30px 15px 0;
+        input[type=text] {
+            width: 160px;
+            height: 30px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: white;
+            ;
+            padding: 12px 30px 12px 12px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+        }
+        input[type=text]:focus {
+            width: 30%;
+        }
+    }
+    .search {
+        padding: 0px;
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+        align-items: flex-start;
+        .input-search {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            height: 50px;
+            width: 300px;
+            margin-top: 50px;
+            //margin-left: 80px;
+            // margin-right: 20px;
+            padding: 0;
+            border-radius: 2px;
+            .inputs {
+                margin-left: 5px;
+                width: 250px;
+                font-size: 13px;
+            }
+            mat-icon {
+                margin-left: 10px;
+                color: #A5ADBA;
+            }
+        }
+        .select {
+            background-color: white;
+            height: 60px;
+            width: 150px;
+            margin-top: 50px;
+            margin-left: 15px;
+            padding: 0;
+            border-radius: 2px;
+            align-items: center;
+            .valor {
+                margin-left: 15px;
+                width: 120px;
+                font-size: 13px;
+            }
+        }
+    }
+    .citas {
+        display: flex;
+        margin-top: 30px;
+        .detalle {
+            height: 190px;
+            width: 640px;
+            margin-left: 80px;
+            display: flex;
+            flex-direction: row;
+            box-sizing: border-box;
+            .hora {
+                h4 {
+                    font-size: 13px;
+                    color: #A5ADBA;
+                    font-weight: 500;
+                    line-height: 19px;
+                }
+            }
+            .contenido {
+                margin-left: 10px;
+                margin-right: 10px;
+                width: 400px;
+                .client {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    .img-radius {
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin: 0 5px;
+                        .img-perfil {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .name {
+                        font-size: 16px;
+                        color: #344563;
+                        margin-left: 10px;
+                        .bold {
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .det {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: left;
+                    margin-top: 20px;
+                    margin-left: 50px;
+                    h4 {
+                        color: #6C798F;
+                        font-size: 13px;
+                        line-height: 20px;
+                        font-weight: bold;
+                    }
+                }
+                .btn {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    margin-top: 30px;
+                    margin-left: 40px;
+                    .prim {
+                        color: #FD0087;
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 19px;
+                    }
+                    .sec {
+                        color: #6C798F;
+                        font-size: 14px;
+                        font-weight: bold;
+                        line-height: 19px;
+                    }
+                }
+            }
+            .codigo {
+                display: flex;
+                flex-direction: row;
+                align-content: flex-end;
+                h4 {
+                    font-size: 13px;
+                    color: #6C798F;
+                    font-weight: 500;
+                    line-height: 19px;
+                }
+                mat-icon {
+                    color: #6C798F;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+.fab-btn {
+    margin-left: 800px;
+    position: relative;
+    margin-top: -200px;
+    .f-btn {
+        position: absolute;
+        .first {
+            z-index: 101;
+        }
+        .second {
+            z-index: 100;
+        }
+        .third {
+            z-index: 99;
+        }
+    }
+}
+
+@keyframes fab1 {
+    from {
+        top: 0px;
+    }
+    to {
+        top: -100px;
+    }
+}
+
+@keyframes fab2 {
+    from {
+        top: 0px;
+    }
+    to {
+        top: -50px;
+    }
+}
+
+.second {
+    animation: fab2 500ms;
+    animation-fill-mode: forwards;
+}
+
+.third {
+    animation: fab1 500ms;
+    animation-fill-mode: forwards;
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 30px 15px 0;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 30%;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
+    margin: 15px;
+}
+
+input[type=text] {
+    width: 160px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 30%;
+}
+
+.example-header {
+    min-height: 64px;
+    padding: 30px 15px 0;
+    margin-left: 200px;
+}
+
+.busqueda {
+    width: 160px;
+    height: 30px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: white;
+    ;
+    padding: 12px 30px 12px 12px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.busqueda:focus {
+    width: 30%;
+}

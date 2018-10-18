@@ -1,0 +1,30 @@
+.ctn {
+    display: flex;
+    flex-direction: column;
+    //margin-left: 30px; //margen Dereche
+    //  justify-content: center;
+    // align-items: center;
+    // .card {
+    //   width: 500px;
+    // margin-left: 200px;
+    .inputs {
+        margin: 5px 0px;
+        width: 350px;
+    }
+    .title {
+        color: #6C798F;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 26px;
+        margin-bottom: 15px;
+    }
+    .btn-fin {
+        display: flex;
+        flex-direction: row;
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            margin-right: 10px;
+        }
+    }
+}

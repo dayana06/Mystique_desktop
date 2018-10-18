@@ -1,0 +1,18 @@
+    .boton {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        position: relative;
+        left: 0px;
+        .btn2 {
+            margin-left: 60px;
+        }
+        .letra {
+            color: #6C798F;
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 19px;
+        }
+    }
